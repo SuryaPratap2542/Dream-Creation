@@ -7,16 +7,19 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{% static 'app/images/banner/b1.jpg' %}" class="d-block w-100" alt="...">
+      <img src="{% static 'app/images/banner/bann1.jpg' %}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{% static 'app/images/banner/b2.jpg' %}" class="d-block w-100" alt="...">
+      <img src="{% static 'app/images/banner/bann2.jpg' %}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{% static 'app/images/banner/b3.jpg' %}" class="d-block w-100" alt="...">
+      <img src="{% static 'app/images/banner/bann3.jpg' %}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{% static 'app/images/banner/b4.jpg' %}" class="d-block w-100" alt="...">
+      <img src="{% static 'app/images/banner/bann4.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/bann5.jpg' %}" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
@@ -31,34 +34,36 @@
 <!-- End Banner Slider -->
 {% endblock banner_slider %}
 
-{% block livesale %}
-<!-- Live Sale Section -->
-<div class="container">
-  <div class="row bg-danger text-center p-12 text-white border-bottom shadow">
-    <h1>SALE IS LIVE NOW</h1>
-    <span>5% Instant Discount on Axis Bank Credit and Debit Card</span>
-    <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small>
-  </div>
-</div>
-<!-- End Live Sale Section -->
-{% endblock livesale %}
+{% block banner %}
+<!--Banner-->
+<section id="banner" class="section-m1">
+  <h4>Repair Services</h4>
+  <h2>Up to <span>70% off</span> All t-Shirts & Accessories</h2>
+  <button class="normal">Explore More</button>
+</section>
+<!--Banner-->
+{% endblock banner %}
+
 
 {% block main-content %}
 <!-- 1st Product Slider -->
-<div class="m-3">
-  <h2>DreamCreation Bottom Wears</h2>
-  <!-- Slider 1 -->
-  <div class="owl-carousel" id="slider1">
-    {% for b in bottomwears %}
-    <a href="{% url 'product-detail' b.id %}" class="btn">
-      <div class="item"><img src="{{b.product_image.url}}" alt="" height="200px"><span
-          class="fw-bold">{{b.title}}</span><br><span class="fs-5">Rs. {{b.discounted_price}}</span></div>
+
+<div class="mx-3">
+  <h2>DreamCreation Top Wears</h2>
+  <!-- Slider 2 -->
+  <div class="owl-carousel" id="slider2">
+    {% for t in topwears %}
+    <a href="{% url 'product-detail' t.id %}" class="btn">
+      <div class="item"><img src="{{t.product_image.url}}" alt="" height="200px"><span
+          class="fw-bold">{{t.title}}</span><br><span class="fs-5">Rs. {{t.discounted_price}}</span></div>
     </a>
     {% endfor %}
   </div>
 </div>
 <!-- End 1st Product Slider -->
+{% endblock main-content %}
 
+{% block payment %}
 <!-- Payment Info Section -->
 <div class="container my-5">
   <div class="row">
@@ -93,35 +98,44 @@
   </div>
 </div>
 <!-- End Payment Info Section -->
-
-<!--Banner-->
-<section id="banner" class="section-m1">
-  <h4>Repair Services</h4>
-  <h2>Up to <span>70% off</span> All t-Shirts & Accessories</h2>
-  <button class="normal">Explore More</button>
-</section>
-<!--Banner end-->
+{% endblock payment %}
 
 
+{% block livesale %}
+<!--Live Banner-->
+ <div class="container">
+  <div class="row bg-danger text-center p-12 text-white border-bottom shadow">
+    <h1>SALE IS LIVE NOW</h1>
+    <span>5% Instant Discount on Axis Bank Credit and Debit Card</span>
+    <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small>
+  </div>
+</div> 
+<!--Live Banner end-->
+{% endblock livesale %}
+
+
+{% block main-content2 %}
 <!-- 2nd Product Slider -->
 <div class="mx-3">
-  <h2>DreamCreation Top Wears</h2>
-  <!-- Slider 2 -->
-  <div class="owl-carousel" id="slider2">
-    {% for t in topwears %}
-    <a href="{% url 'product-detail' t.id %}" class="btn">
-      <div class="item"><img src="{{t.product_image.url}}" alt="" height="200px"><span
-          class="fw-bold">{{t.title}}</span><br><span class="fs-5">Rs. {{t.discounted_price}}</span></div>
+  <h4 class="alert alert-danger">DreamCreation Bottom Wears</h4>
+  <!-- Slider 1 -->
+  <div class="owl-carousel" id="slider1">
+    {% for b in bottomwears %}
+    <a href="{% url 'product-detail' b.id %}" class="btn">
+      <div class="item"><img src="{{b.product_image.url}}" alt="" height="200px"><span
+          class="fw-bold">{{b.title}}</span><br><span class="fs-5">Rs. {{b.discounted_price}}</span></div>
     </a>
     {% endfor %}
   </div>
 </div>
 <!-- End 2nd Product Slider -->
+{% endblock main-content2 %}
 
-<!-- 2nd Product Slider -->
+{% block main-content3 %}
+<!-- 3rd Product Slider -->
 <div class="mx-3">
   <h2>DreamCreation Mobiles</h2>
-  <!-- Slider 2 -->
+  <!-- Slider 3 -->
   <div class="owl-carousel" id="slider3">
     {% for m in mobiles %}
     <a href="{% url 'product-detail' m.id %}" class="btn">
@@ -131,5 +145,5 @@
     {% endfor %}
   </div>
 </div>
-<!-- End 2nd Product Slider -->
-{% endblock main-content %}
+<!-- End erd Product Slider -->
+{% endblock main-content3 %}

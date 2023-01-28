@@ -75,6 +75,8 @@ footer .col {
 footer .col .logo {
     border-radius: 10%;
     margin-bottom: 30px;
+    margin-left: -40px;
+    width: 101px;
 }
 
 footer h4 {
@@ -169,6 +171,8 @@ button.normal {
 }
 
 #banner button:hover {
-    background-color: #088178;
+    background-color: #ddda41;
     color: #fff;
 }
+
+
