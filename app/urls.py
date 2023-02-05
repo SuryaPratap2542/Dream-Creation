@@ -22,6 +22,10 @@ urlpatterns = [
     path('mobile/', views.mobile, name='mobile'),
     path('mobile/<slug:data>', views.mobile, name='mobiledata'),
 
+    path('checkout/', views.checkout, name='checkout'),
+    path('paymentdone/', views.payment_done, name='paymentdonet'),
+
+
     path('topwear/', views.topwear, name='topwear'),
     path('topwear/<slug:data>', views.topwear, name='topweardata'),
 
@@ -49,6 +53,5 @@ urlpatterns = [
 
     path('registration/', views.CustomerRegistrationView.as_view(), name='customerregistration'),
 
-    path('checkout/', views.checkout, name='checkout'),
 ] 
 urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
