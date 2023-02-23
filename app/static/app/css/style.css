@@ -26,6 +26,8 @@
     box-sizing: border-box;
     font-family: 'Spartan', sans-serif;
 }
+
+
 h1 {
     font-size: 50px;
     line-height: 64px;
@@ -59,72 +61,6 @@ p {
 .section-m1 {
     margin: 25px;
 }
-footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: #ddf6eb;
-}
-footer .col {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 20px;
-}
-
-footer .col .logo {
-    border-radius: 10%;
-    margin-bottom: 30px;
-    margin-left: -40px;
-    width: 101px;
-}
-
-footer h4 {
-    font-size: 14px;
-    padding-bottom: 20px;
-}
-
-footer p {
-    font-size: 14px;
-    margin: 0 0 8px 0;
-}
-
-footer a {
-    font-size: 13px;
-    text-decoration: none;
-    color: #222;
-    margin-bottom: 10px;
-}
-
-footer .follow {
-    margin-bottom: 20px;
-}
-
-footer .follow i {
-    color: #465b52;
-    padding-right: 4px;
-    cursor: pointer;
-}
-
-footer .install .row img {
-    /* border: 1px solid #088178; */
-    border-radius: 6px;
-}
-
-footer .install img {
-    margin: 10px 0 15px 0;
-}
-
-footer .follow i:hover,
-footer a:hover {
-    color: #088178;
-}
-
-footer .copyright {
-    width: 100%;
-    text-align: center;
-}
-
 
 button.normal {
     font-size: 14px;
@@ -138,19 +74,17 @@ button.normal {
     outline: none;
     transition: 0.2s;
 }
+/* Banner Start */
 #banner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color:#222 ;
-    /* background-image: url("images/banner/b5.jpg"); */
-    width: 100%;
-    height: 40vh;
+    width: auto;
+    height: 221px;
     background-size: cover;
     background-position: center;
-    /* margin-bottom:50px; */
 }
 
 #banner h4 {
@@ -167,12 +101,50 @@ button.normal {
 }
 
 #banner h2 span {
-    color: rgb(222, 13, 13);
+    color: rgb(214, 95, 95);
 }
 
 #banner button:hover {
-    background-color: #ddda41;
+    background-color: #088178;
     color: #fff;
 }
 
+@media (max-width:799px) {
+    .section-p1 {
+        padding: 40px 40px;
+    }
+
+    #banner {
+        height: 20vh;
+    }
+
+    #banner .banner-box {
+        min-width: 100%;
+        height: 30vh;
+    }
+
+}
+
+@media (max-width: 477px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    h4 {
+        font-size: 27px;
+    }
+
+    p {
+        margin: -4px 0px -7px 0;
+    }
+    #banner {
+        height: 35vh;
+    }
+
+
+}
 
