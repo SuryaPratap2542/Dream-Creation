@@ -22,16 +22,27 @@ This is an e-commerce website built using HTML, CSS, JavaScript, Django, and AJA
 ## Screenshots
 
 ### Home Page
-![Home Page](<img width="905" alt="image" src="https://github.com/SuryaPratap2542/Dream-Creation/assets/89827931/8eea7139-7b1a-417b-bfb1-4e98c5473ede">)
+![Home Page]
+<img width="905" alt="image" src="https://github.com/SuryaPratap2542/Dream-Creation/assets/89827931/8eea7139-7b1a-417b-bfb1-4e98c5473ede">
 <img width="906" alt="image" src="https://github.com/SuryaPratap2542/Dream-Creation/assets/89827931/3b3cd30b-e8d1-4fce-8035-008abc6df50e">
 
 
 
 ### Product Detail Page
-![Product Detail Page](images/product_detail.png)
+![Product Detail Page]
+<img width="905" alt="image" src="https://github.com/SuryaPratap2542/Dream-Creation/assets/89827931/5d55c4d2-b6d9-4df7-b983-fe46aa65b783">
+
+
 
 ### Cart Page
-![Cart Page](images/cart_page.png)
+![Cart Page]
+<img width="907" alt="image" src="https://github.com/SuryaPratap2542/Dream-Creation/assets/89827931/e5120961-3228-4280-aeaf-ebdd663ba73d">
+
+
+### Checkout Page
+![Checkout Page]
+<img width="908" alt="image" src="https://github.com/SuryaPratap2542/Dream-Creation/assets/89827931/24dd5429-8ab4-464c-9d87-966f0877e069">
+
 
 ## Contributing
 
