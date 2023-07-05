@@ -14,7 +14,8 @@ class ProductView(View):
         topwears = Product.objects.filter(category='TW')
         bottomwears = Product.objects.filter(category='BW')
         mobiles = Product.objects.filter(category='M')
-        return render(request,'app/home.html',{'topwears':topwears,'bottomwears':bottomwears,'mobiles':mobiles})
+        laptops = Product.objects.filter(category='L')
+        return render(request,'app/home.html',{'topwears':topwears,'bottomwears':bottomwears,'mobiles':mobiles,'laptops':laptops})
 
         
 class ProductDetailView(View):
@@ -24,6 +25,7 @@ class ProductDetailView(View):
         if request.user.is_authenticated:
             item_already_in_cart=Cart.objects.filter(Q(product=product.id) & Q(user=request.user)).exists()
         return render(request,'app/productdetail.html',{'product':product,'item_already_in_cart':item_already_in_cart})
+
 
 @login_required
 def add_to_cart(request):
@@ -38,6 +40,7 @@ def show_cart(request):
     if request.user.is_authenticated:
         user=request.user
         cart=Cart.objects.filter(user=user)
+        cn=Cart.objects.filter(user=user).count()
         # print(cart)
         amount=0.0
         shipping_amount = 70.0
@@ -49,7 +52,7 @@ def show_cart(request):
                 tempamount = (p.quantity*p.product.discounted_price)
                 amount+=tempamount
                 total_amount= amount+shipping_amount
-            return render(request, 'app/addtocart.html',{'carts':cart,'total_amount':total_amount,'amount':amount})
+            return render(request, 'app/addtocart.html',{'carts':cart,'total_amount':total_amount,'amount':amount,'cn':cn})
         else:
             return render(request, 'app/emptycart.html')
 
@@ -159,6 +162,17 @@ def bottomwear(request,data=None):
     elif data == 'Above':
         bottomwears = Product.objects.filter(category='BW').filter(discounted_price__gt=500)
     return render(request, 'app/bottomwear.html',{'bottomwears':bottomwears})
+
+def laptop(request,data=None):
+    if data==None:
+        laptops = Product.objects.filter(category='L')
+    elif data == 'Dell' or data == 'HP' or data == 'Asus' or data == 'Redmi' or data == 'Lenovo' or data == 'MacBook':
+        laptops = Product.objects.filter(category='L').filter(brand=data)
+    elif data == 'Below':
+        laptops = Product.objects.filter(category='L').filter(discounted_price__lt=50000)
+    elif data == 'Above':
+        laptops = Product.objects.filter(category='L').filter(discounted_price__gt=50000)
+    return render(request, 'app/laptop.html',{'laptops':laptops})
 
 def login(request):
  return render(request, 'app/login.html')

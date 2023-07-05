@@ -36,20 +36,21 @@
 
 {% block banner %}
 <!--Banner-->
-<section id="banner">
+
+<section id="banner" class="section-p1 section-m1">
   <h4>Repair Services</h4>
   <h2>Up to <span>70% off</span> All t-Shirts & Accessories</h2>
   <button class="normal">Explore More</button>
 </section>
+
 <!--Banner-->
 {% endblock banner %}
 
 
 {% block main-content %}
 <!-- 1st Product Slider -->
-
 <div class="mx-3">
-  <h2>DreamCreation Top Wears</h2>
+  <h4 class="alert alert-danger text-dark fw-bold text-center">DreamCreation Top Wears</h4>
   <!-- Slider 2 -->
   <div class="owl-carousel" id="slider2">
     {% for t in topwears %}
@@ -103,13 +104,18 @@
 
 {% block livesale %}
 <!--Live Banner-->
-<div class="container">
-  <div class="row bg-danger text-center p-12 text-white border-bottom shadow">
-    <h1>SALE IS LIVE NOW</h1>
-    <span>5% Instant Discount on Axis Bank Credit and Debit Card</span>
-    <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small>
-  </div>
-</div>
+{% comment %} <div class="banner animated tada ">
+  <div class=" big-text animated tada">95% OFF</div>
+   <div>the entire store</div>
+   <button class="normal">Explore More</button>
+
+ </div> {% endcomment %}
+ <section id="banner" class="section-p1 section-m1 ban">
+  <h4>95% OFF</h4>
+  <h2>the Entire <span>Store</span> All laptop & Mobiles</h2>
+  <button class="normal">Explore More</button>
+</section>
+
 <!--Live Banner end-->
 {% endblock livesale %}
 
@@ -117,13 +123,13 @@
 {% block main-content2 %}
 <!-- 2nd Product Slider -->
 <div class="mx-3">
-  <h4 class="alert alert-danger">DreamCreation Bottom Wears</h4>
+  <h4 class="alert alert-danger text-dark fw-bold text-center">DreamCreation Bottom Wears</h4>
   <!-- Slider 1 -->
   <div class="owl-carousel" id="slider1">
     {% for b in bottomwears %}
     <a href="{% url 'product-detail' b.id %}" class="btn">
       <div class="item"><img src="{{b.product_image.url}}" alt="" height="200px"><span
-          class="fw-bold">{{b.title}}</span><br><span class="fs-5">Rs. {{b.discounted_price}}</span></div>
+          class="fw-bold ">{{b.title}}</span><br><span class="fs-5">Rs. {{b.discounted_price}}</span></div>
     </a>
     {% endfor %}
   </div>
@@ -134,7 +140,7 @@
 {% block main-content3 %}
 <!-- 3rd Product Slider -->
 <div class="mx-3">
-  <h2>DreamCreation Mobiles</h2>
+  <h4 class="alert alert-danger text-dark fw-bold text-center">DreamCreation Mobile</h4>
   <!-- Slider 3 -->
   <div class="owl-carousel" id="slider3">
     {% for m in mobiles %}
@@ -145,5 +151,25 @@
     {% endfor %}
   </div>
 </div>
+
 <!-- End erd Product Slider -->
 {% endblock main-content3 %}
+
+
+{% block main-content4 %}
+<!-- 3rd Product Slider -->
+<div class="mx-3">
+  <h4 class="alert alert-danger text-dark fw-bold text-center">DreamCreation Laptop</h4>
+  <!-- Slider 3 -->
+  <div class="owl-carousel" id="slider4">
+    {% for m in laptops %}
+    <a href="{% url 'product-detail' m.id %}" class="btn">
+      <div class="item"><img src="{{m.product_image.url}}" alt="" height="200px"><span
+          class="fw-bold">{{m.title}}</span><br><span class="fs-5">Rs. {{m.discounted_price}}</span></div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- End erd Product Slider -->
+{% endblock main-content4 %}

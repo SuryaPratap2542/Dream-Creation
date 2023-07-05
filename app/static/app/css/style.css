@@ -74,6 +74,15 @@ button.normal {
     outline: none;
     transition: 0.2s;
 }
+
+/*//livesale */
+.ban{
+
+    background:url(http://s6.favim.com/orig/150112/background-cold-gif-nature-Favim.com-2380226.gif);
+    /*https://i0.wp.com/media.giphy.com/media/5ERaOy5fQEIAU/giphy.gif*/
+}
+
+
 /* Banner Start */
 #banner {
     display: flex;
@@ -84,6 +93,7 @@ button.normal {
     width: auto;
     height: 221px;
     background-size: cover;
+    background-color: #222;
     background-position: center;
 }
 
@@ -110,40 +120,74 @@ button.normal {
 }
 
 @media (max-width:799px) {
-    .section-p1 {
-        padding: 40px 40px;
-    }
-
     #banner {
-        height: 20vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: auto;
+        height: 17vh;
+        background-size: cover;
+        background-color: #222;
+        background-position: center;
+    }
+    
+    #banner h4 {
+        font-size: 20px;
+    }
+    
+    #banner h2 {
+        font-size: 9px;
+        padding: 1px 0;
+        margin: -11px;
     }
 
-    #banner .banner-box {
-        min-width: 100%;
-        height: 30vh;
+    .section-m1 {
+        margin: 12px;
+    }
+    button.normal {
+        font-size: 10px;
+        font-weight: 600;
+        padding: 9px 28px;
     }
 
 }
 
+
 @media (max-width: 477px) {
-    h1 {
-        font-size: 28px;
-    }
-
-    h2 {
-        font-size: 25px;
-    }
-
-    h4 {
-        font-size: 27px;
-    }
-
-    p {
-        margin: -4px 0px -7px 0;
-    }
     #banner {
-        height: 35vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: auto;
+        height: 17vh;
+        background-size: cover;
+        background-color: #222;
+        background-position: center;
     }
+    
+    #banner h4 {
+        font-size: 20px;
+    }
+    
+    #banner h2 {
+        font-size: 9px;
+        padding: 1px 0;
+        margin: -11px;
+    }
+
+    .section-m1 {
+        margin: 12px;
+    }
+    button.normal {
+        font-size: 10px;
+        font-weight: 600;
+        padding: 9px 28px;
+    }
+
 
 
 }

@@ -19,6 +19,7 @@ urlpatterns = [
     path('profile/', views.ProfileView.as_view(), name='profile'),
     path('address/', views.address, name='address'),
     path('orders/', views.orders, name='orders'),
+    
     path('mobile/', views.mobile, name='mobile'),
     path('mobile/<slug:data>', views.mobile, name='mobiledata'),
 
@@ -31,6 +32,9 @@ urlpatterns = [
 
     path('bottomwear/', views.bottomwear, name='bottomwear'),
     path('bottomwear/<slug:data>', views.bottomwear, name='bottomweardata'),
+
+    path('laptop/', views.laptop, name='laptop'),
+    path('laptop/<slug:data>', views.laptop, name='laptopdata'),
 
 
 #  Authentication Code

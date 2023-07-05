@@ -1,0 +1,37 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Laptop{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="list-group">
+    <a href="{% url 'laptop' %}" class="list-group-item list-group-item-action" aria-current="true">All Laptop</a>
+    <a href="{% url 'laptopdata' 'Lenovo' %}" class="list-group-item list-group-item-action" aria-current="true">Lenovo</a>
+    <a href="{% url 'laptopdata' 'Dell' %}" class="list-group-item list-group-item-action" aria-current="true">Dell</a>
+    <a href="{% url 'laptopdata' 'HP' %}" class="list-group-item list-group-item-action" aria-current="true">HP</a>
+    <a href="{% url 'laptopdata' 'MacBook' %}" class="list-group-item list-group-item-action" aria-current="true">MacBook</a>
+    <a href="{% url 'laptopdata' 'MI' %}" class="list-group-item list-group-item-action" aria-current="true">MI</a>
+    <a href="{% url 'laptopdata' 'Below' %}" class="list-group-item list-group-item-action" aria-current="true">Below 500</a>
+    <a href="{% url 'laptopdata' 'Above' %}" class="list-group-item list-group-item-action" aria-current="true">Above 500</a>
+   </div>
+  </div>
+  <div class="col-sm-9 ">
+   <div class="row " >
+    {% for b in laptops %}
+    <div class="col-sm-4 text-center mb-5 ">
+        <a href="{% url 'product-detail' b.id %}" class="btn">
+        <div class="item">
+            <img src="{{b.product_image.url}}" alt="" height="300" class="">
+            <div class="fw-bold">{{b.title}}</div>
+            <div class="fw-bold">{{b.discounted_price}} <small class="fw-light text-decoration-line-through">{{b.selling_price}}</small>
+            </div>
+        </div>
+    </a>
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
