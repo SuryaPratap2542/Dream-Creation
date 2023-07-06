@@ -7,6 +7,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+ <!--Favicon -->
+
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -22,13 +25,16 @@
 
 
   <title>DreamCreation | {% block title %} {% endblock title %} </title>
+  <link rel="icon" type="image/png" href="{% static 'app/images/favicon.png' %}">
+
+
 </head>
 
 <body style="background: linear-gradient(to top right, #80cbc4,#e1bee7,#80ddea,#d1c4e9);">
   <nav class="navbar navbar-expand-lg navbar-dark bg-info">
     <div class="container">
-      <!-- <img src="{% static 'app/images/logpdc.jpg' %}" width="101" height="55" margin-left="-40px" class="logo" alt=""> -->
-      <a class="navbar-brand" href="/">DreamCreation</a>
+      <img src="{% static 'app/images/shopping-cart.png' %}" width="100" height="50" margin-left="-30px" class="logo" alt="">
+      <a class="navbar-brand" href="/"><span class="text-danger fs-2">D</span>ream<span class="text-danger fs-2">C</span>reation</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -169,22 +175,22 @@
 
     <!-- Right -->
     <div>
-      <a href="" class="me-4 text-dark">
+      <a href="https://www.facebook.com/profile.php?id=100029290171764" class="me-4 text-dark">
         <i class="fab fa-facebook-f"></i>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="https://twitter.com/suryapratp788" class="me-4 text-reset">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
+      <a href="https://www.youtube.com/c/DreamPoint" class="me-4 text-reset">
+        <i class="fab fa-youtube"></i>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="https://www.instagram.com/suryapratap6473/" class="me-4 text-reset">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="https://www.linkedin.com/in/surya-pratap-singh-288bb4132/" class="me-4 text-reset">
         <i class="fab fa-linkedin"></i>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="https://github.com/SuryaPratap2542" class="me-4 text-reset">
         <i class="fab fa-github"></i>
       </a>
     </div>
@@ -201,7 +207,8 @@
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4 text-dark">
-            <i class="fas fa-gem me-3"></i>Company name
+            <img src="{% static 'app/images/shopping-cart.png' %}" width="100" height="50" margin-left="-30px" class="logo" alt="">
+            <a class="navbar-brand" href="/"><span class="text-danger fs-2">D</span>ream<span class="text-danger fs-2">C</span>reation</a>
           </h6>
           <p>
             Here you can use rows and columns to organize your footer content. Lorem ipsum

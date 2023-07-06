@@ -15,7 +15,10 @@ class ProductView(View):
         bottomwears = Product.objects.filter(category='BW')
         mobiles = Product.objects.filter(category='M')
         laptops = Product.objects.filter(category='L')
-        return render(request,'app/home.html',{'topwears':topwears,'bottomwears':bottomwears,'mobiles':mobiles,'laptops':laptops})
+        if request.user.is_authenticated:
+            user=request.user
+            cn=Cart.objects.filter(user=user).count()
+        return render(request,'app/home.html',{'topwears':topwears,'bottomwears':bottomwears,'mobiles':mobiles,'laptops':laptops,'cn':cn})
 
         
 class ProductDetailView(View):
