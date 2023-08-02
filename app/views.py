@@ -15,6 +15,7 @@ class ProductView(View):
         bottomwears = Product.objects.filter(category='BW')
         mobiles = Product.objects.filter(category='M')
         laptops = Product.objects.filter(category='L')
+        cn=0
         if request.user.is_authenticated:
             user=request.user
             cn=Cart.objects.filter(user=user).count()
@@ -25,9 +26,13 @@ class ProductDetailView(View):
     def get(self,request,pk):
         product=Product.objects.get(pk=pk)
         item_already_in_cart=False
+        cn=0
         if request.user.is_authenticated:
+            user=request.user
+            cn=Cart.objects.filter(user=user).count()
             item_already_in_cart=Cart.objects.filter(Q(product=product.id) & Q(user=request.user)).exists()
-        return render(request,'app/productdetail.html',{'product':product,'item_already_in_cart':item_already_in_cart})
+
+        return render(request,'app/productdetail.html',{'product':product,'item_already_in_cart':item_already_in_cart,'cn':cn})
 
 
 @login_required
