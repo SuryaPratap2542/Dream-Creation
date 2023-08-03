@@ -5,10 +5,10 @@
 <div class="container my-5">
     <div class="row">
         <div class="col-sm-6 text-center align-self-center">
-            <img src="{{product.product_image.url}}" alt="" class="img-fluid img-thumbnail">
+            <img src="{{product.product_image.url}}" alt="" class="img-fluid">
         </div>
         <div class="col-sm-5 offset-sm-1">
-            <h2>Product Title: {{product.title}}</h2>
+            <h2>{{product.title}}</h2>
             <hr>
             <p>Product Description:{{product.description}} </p> <br>
             <h4>Rs. {{product.discounted_price}}
@@ -16,7 +16,7 @@
             </h4> <br>
             {% if request.user.is_authenticated %}
             {% if item_already_in_cart %}
-                <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 ms-4">Go to Cart </a>
+            <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 ms-4">Go to Cart </a>
             {%else%}
             <form action="/add-to-cart" class="d-inline">
                 <input type="hidden" name="prod_id" value="{{product.id}}" id="prod_id">
@@ -46,3 +46,82 @@
     </div>
 </div>
 {% endblock main-content %}
+
+{% block main-content2 %}
+
+{% if product.category == 'TW' %}
+<!-- 1st Product Slider -->
+<div class="mx-3">
+    <h4 class="alert alert-danger text-dark fw-bold text-center">More related Products</h4>
+    <!-- Slider 2 -->
+    <div class="owl-carousel" id="slider2">
+        {% for t in topwears %}
+        {% if t.brand == product.brand %}
+        <a href="{% url 'product-detail' t.id %}" class="btn">
+            <div class="item"><img src="{{t.product_image.url}}" alt="" height="200px"><span
+                    class="fw-bold">{{t.title}}</span><br><span class="fs-5">Rs. {{t.discounted_price}}</span></div>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<!-- End 1st Product Slider -->
+
+{% elif product.category == 'BW' %}
+<!-- 2nd Product Slider (Bottom Wears) -->
+<div class="mx-3">
+    <h4 class="alert alert-danger text-dark fw-bold text-center">More related Products</h4>
+    <!-- Slider for Bottom Wears -->
+    <div class="owl-carousel" id="slider1">
+        {% for b in bottomwears %}
+        {% if b.brand == product.brand %}
+        <a href="{% url 'product-detail' b.id %}" class="btn">
+            <div class="item"><img src="{{b.product_image.url}}" alt="" height="200px"><span
+                    class="fw-bold">{{b.title}}</span><br><span class="fs-5">Rs. {{b.discounted_price}}</span></div>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<!-- End 2nd Product Slider (Bottom Wears) -->
+
+{% elif product.category == 'M' %}
+<!-- 3rd Product Slider (Mobiles) -->
+<div class="mx-3">
+    <h4 class="alert alert-danger text-dark fw-bold text-center">More related Products</h4>
+    <!-- Slider for Mobiles -->
+    <div class="owl-carousel" id="slider5">
+        {% for m in mobiles %}
+        {% if m.brand == product.brand %}
+
+        <a href="{% url 'product-detail' m.id %}" class="btn">
+            <div class="item"><img src="{{m.product_image.url}}" alt="" height="200px"><span
+                    class="fw-bold">{{m.title}}</span><br><span class="fs-5">Rs. {{m.discounted_price}}</span></div>
+        </a>
+
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<!-- End 3rd Product Slider (Mobiles) -->
+
+
+{% elif product.category == 'L' %}
+<!-- 4th Product Slider (Laptops) -->
+<div class="mx-3">
+    <h4 class="alert alert-danger text-dark fw-bold text-center">More related Products</h4>
+    <!-- Slider for Laptops -->
+    <div class="owl-carousel" id="slider4">
+        {% for l in laptops %}
+        {% if l.brand == product.brand %}
+        <a href="{% url 'product-detail' l.id %}" class="btn">
+            <div class="item"><img src="{{l.product_image.url}}" alt="" height="200px"><span
+                    class="fw-bold">{{l.title}}</span><br><span class="fs-5">Rs. {{l.discounted_price}}</span></div>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<!-- End 4th Product Slider (Laptops) -->
+{% endif %}
+{% endblock main-content2 %}

@@ -1,25 +1,53 @@
 .owl-carousel .item{
- /* border: 1px solid black; */
  font-size: 24px;
  text-align: center;
  margin-top: 20px;;
 }
 
 .owl-next{
- float:right;
+    background-color: red;
+    height: 60px;
+    float:right;
 }
 .owl-prev{
  float:left;
 }
-.owl-prev span{
- font-size: 24px;
- font-weight: bold;
-}
+.owl-prev span,
 .owl-next span{
- font-size: 24px;
- font-weight: bold;
-}
+    font-size: 40px;
+    font-weight: bold;
+   } 
+  /* Add custom CSS styles here */
+    /* Add custom CSS styles here */
 
+.owl-carousel .owl-nav {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        justify-content: space-between;
+    }
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+    background-color: rgb(232, 219, 219);
+      /* Set the background color to red */
+      border: none; /* Remove the default button border */
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: rgba(237, 12, 12, 0.8); /* Set the button text color to white */
+      height: 90px; /* Make the buttons' height equal to the carousel container */
+      width: 20px; /* Set a fixed width for the buttons */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .owl-carousel .owl-nav button.owl-prev:hover,
+.owl-carousel .owl-nav button.owl-next:hover{
+    background-color: #088178;
+    color: #fff;
+}
+      
 * {
     margin: 0;
     padding: 0;
