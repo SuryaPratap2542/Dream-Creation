@@ -8,7 +8,7 @@
       <h4>Order Summary</h4>
       <hr>
       {% for item in cart_items %}
-      <div class="card mb-2">
+      <div class="card bg-transparent border border-primary border-2 border-rounded mb-2">
         <div class="card-body">
           <h5>Product: {{item.product.title}}</h5>
           <p>Quantity: {{item.quantity}}</p>
@@ -17,16 +17,20 @@
       </div>
       {% endfor %}
       <p class="fw-bold">Total Cost + Rs. 70 = {{totalamount}}</p>
-      <small>Term and Condition: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ullam saepe! Iure
-        optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam, accusantium adipisci nisi nihil
-        in et quis?</small>
+      <h5><bold>Terms and Conditions</bold></h5>
+      <small>
+        <strong>Order Summary:</strong> Verify the order details before making a purchase.<br>
+        <strong>Payment: </strong> Successful payment is required to process the order.<br>
+        <strong>Delivery: </strong> Delivery times may vary.<br>
+        <strong>Refunds:</strong> Cancellation policy applies before shipping.<br>
+        <strong>Returns and Exchanges:</strong> Returns accepted within [number of days] days of delivery.</small>
     </div>
     <div class="col-sm-4 offset-sm-1">
       <h4>Select Shipping Address</h4>
       <hr>
       <form action="/paymentdone">
         {% for ad in add%}
-        <div class="card">
+        <div class="card bg-transparent border border-primary border-2 border-rounded mb-1">
           <div class="card-body">
             <h5>{{ad.name}}</h5>
             <p>{{ad.locality}}, {{ad.city}}, {{as.state}} , {{ad.zipcode}}</p>
@@ -38,8 +42,8 @@
             Address: {{forloop.counter}} </label>
         </div>
         {% endfor %}
-        <div class="text-end">
-          <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Continue</button>
+        <div class="text-start">
+          <button type="submit" class="btn btn-warning mt-2 px-5 fw-bold">Continue</button>
         </div>
       </form>
     </div>

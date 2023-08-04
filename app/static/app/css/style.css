@@ -1,3 +1,9 @@
+body{
+    background: linear-gradient(to top right, #aae6e0,#e9e3ead0,#c0e9eecb,#a98fd8cc);
+}
+nav{
+    background: #2077c8a8;
+}
 .owl-carousel .item{
  font-size: 24px;
  text-align: center;
