@@ -52,10 +52,16 @@
   <!-- Slider 2 -->
   <div class="owl-carousel" id="slider2">
     {% for t in topwears %}
-    <a href="{% url 'product-detail' t.id %}" class="btn">
-      <div class="item"><img src="{{t.product_image.url}}" alt="" height="200px"><span
-          class="fw-bold">{{t.title}}</span><br><span class="fs-5">Rs. {{t.discounted_price}}</span></div>
+    <a href="{% url 'product-detail' t.id %}" class="btn border border-primary border-2">
+      <div class="item ">
+        <img src="{{t.product_image.url}}" alt="" height="200px">
+        <hr class="text-dark">
+        <span class="fw-bold ">{{t.title}}</span><br>
+        <span class="fs-5">Rs. {{t.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{t.selling_price}}</small></span>
+      </div>
     </a>
+
+
     {% endfor %}
   </div>
 </div>
@@ -103,7 +109,7 @@
 
 {% block livesale %}
 <!--Live Banner-->
- <section id="banner" class="section-p1 section-m1 ban">
+<section id="banner" class="section-p1 section-m1 ban">
   <h4>95% OFF</h4>
   <h2>the Entire <span>Store</span> All laptop & Mobiles</h2>
   <button class="normal">Explore More</button>
@@ -119,9 +125,13 @@
   <!-- Slider 1 -->
   <div class="owl-carousel" id="slider1">
     {% for b in bottomwears %}
-    <a href="{% url 'product-detail' b.id %}" class="btn">
-      <div class="item"><img src="{{b.product_image.url}}" alt="" height="200px"><span
-          class="fw-bold ">{{b.title}}</span><br><span class="fs-5">Rs. {{b.discounted_price}}</span></div>
+    <a href="{% url 'product-detail' b.id %}" class="btn border border-primary border-2">
+      <div class="item ">
+        <img src="{{b.product_image.url}}" alt="" height="200px">
+        <hr class="text-dark">
+        <span class="fw-bold ">{{b.title}}</span><br>
+        <span class="fs-5">Rs. {{b.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{b.selling_price}}</small></span>
+      </div>
     </a>
     {% endfor %}
   </div>
@@ -136,9 +146,13 @@
   <!-- Slider 3 -->
   <div class="owl-carousel" id="slider3">
     {% for m in mobiles %}
-    <a href="{% url 'product-detail' m.id %}" class="btn">
-      <div class="item"><img src="{{m.product_image.url}}" alt="" height="200px"><span
-          class="fw-bold">{{m.title}}</span><br><span class="fs-5">Rs. {{m.discounted_price}}</span></div>
+    <a href="{% url 'product-detail' m.id %}" class="btn border border-primary border-2">
+      <div class="item ">
+        <img src="{{m.product_image.url}}" alt="" height="200px">
+        <hr class="text-dark">
+        <span class="fw-bold ">{{m.title}}</span><br>
+        <span class="fs-5">Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+      </div>
     </a>
     {% endfor %}
   </div>
@@ -154,9 +168,13 @@
   <!-- Slider 3 -->
   <div class="owl-carousel" id="slider4">
     {% for m in laptops %}
-    <a href="{% url 'product-detail' m.id %}" class="btn">
-      <div class="item"><img src="{{m.product_image.url}}" alt="" height="200px"><span
-          class="fw-bold">{{m.title}}</span><br><span class="fs-5">Rs. {{m.discounted_price}}</span></div>
+    <a href="{% url 'product-detail' m.id %}" class="btn border border-primary border-2">
+      <div class="item ">
+        <img src="{{m.product_image.url}}" alt="" height="200px">
+        <hr class="text-dark">
+        <span class="fw-bold ">{{m.title}}</span><br>
+        <span class="fs-5">Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+      </div>
     </a>
     {% endfor %}
   </div>
