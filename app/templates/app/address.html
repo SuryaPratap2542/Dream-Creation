@@ -4,25 +4,40 @@
 {% block main-content %}
 <div class="container my-5">
     <div class="row">
-        <h3>Welcome: <span class="text-capitalize">{{request.user}}</span></h3>
+        <h3>Welcome: <span class="text-capitalize">{{ request.user }}</span></h3>
         <div class="col-sm-2 border-end">
             <ul class="list-unstyled">
                 <li class="d-grid"><a href="{% url 'profile' %}" class="btn">Profile</a></li>
-                <li class="d-grid"><a href="{% url 'address' %}" class="btn {{active}}">Address</a></li>
+                <li class="d-grid"><a href="{% url 'address' %}" class="btn {{ active }}">Address</a></li>
             </ul>
         </div>
         <div class="col-sm-9 offset-sm-1 mt-5">
+            {% if messages %}
+                <div class="alert alert-success text-danger">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
             <div class="row">
                 {% for ad in add %}
-                <div class="col-sm-6 ">
+                <div class="col-sm-6">
                     <div class="card bg-transparent border border-primary border-2 border-rounded mb-5">
-                        <div class="card-body ">
-                            <h3>Address {{ forloop.counter }} </h3>
-                            <p>Name: {{ad.name}}</p>
-                            <p>Locality:{{ad.locality}}</p>
-                            <p>City: {{ad.city}}</p>
-                            <p>State: {{ad.state}}</p>
-                            <p>Pin Code: {{ad.zipcode}}</p>
+                        <div class="card-body">
+                            <h3>Address {{ forloop.counter }}</h3>
+                            <p>Name: {{ ad.name }}</p>
+                            <p>Locality: {{ ad.locality }}</p>
+                            <p>City: {{ ad.city }}</p>
+                            <p>State: {{ ad.state }}</p>
+                            <p>Pin Code: {{ ad.zipcode }}</p>
+                            <div class="mt-3">
+                                <a href="{% url 'edit_address' address_id=ad.id %}" class="btn btn-primary">Edit</a>
+                                <form action="{% url 'delete_address' address_id=ad.id %}" method="post" style="display: inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -30,6 +45,5 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 {% endblock main-content %}

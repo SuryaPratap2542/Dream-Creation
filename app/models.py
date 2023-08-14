@@ -42,6 +42,8 @@ STATE_CHOICES = (
    ("UK","Uttarakhand"),
    ("WB","West Bengal")
 )
+
+
 class Customer(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     name=models.CharField(max_length=200)
@@ -104,3 +106,4 @@ class OrderPlaced(models.Model):
         return self.quantity * self.product.discounted_price
     def Quant(self):
         return self.quantity
+

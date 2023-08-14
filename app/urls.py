@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from .forms import LoginForm,MyPasswordChangeForm,MyPasswordResetForm,MySetPasswordForm
-
+from .views import editAddress,delete_address
 urlpatterns = [
     path("", views.ProductView.as_view(), name="home"),
     path('product-detail/<int:pk>', views.ProductDetailView.as_view(), name='product-detail'),
@@ -24,7 +24,7 @@ urlpatterns = [
     path('mobile/<slug:data>', views.mobile, name='mobiledata'),
 
     path('checkout/', views.checkout, name='checkout'),
-    path('paymentdone/', views.payment_done, name='paymentdonet'),
+    path('paymentdone/', views.payment_done, name='paymentdone'),
 
 
     path('topwear/', views.topwear, name='topwear'),
@@ -56,6 +56,14 @@ urlpatterns = [
     path("password-reset-complete/",auth_views.PasswordResetCompleteView.as_view(template_name='app/password_reset_complete.html'), name="password_reset_complete"),
 
     path('registration/', views.CustomerRegistrationView.as_view(), name='customerregistration'),
+
+     # Address related URLs
+    # path('address/', views.address, name='address'),
+    # path('add_address/', views.add_address, name='add_address'),
+    path('edit_address/<int:address_id>/', editAddress.as_view(), name='edit_address'),
+    path('delete_address/<int:address_id>/', delete_address, name='delete_address'),
+
+    # path('delete_address/<int:address_id>/', views.delete_address, name='delete_address'),
 
 ] 
 urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

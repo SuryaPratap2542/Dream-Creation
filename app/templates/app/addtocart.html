@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}Cart{% endblock title %}
 {% block main-content %}
+
 <div class="container my-5">
   <div class="row">
     <h1 class="text-center mb-5">Shopping Cart</h1>
@@ -36,7 +37,6 @@
         </div>
       </div>
     </div>
-
     <div class="col-sm-4">
       <div class="card border border-primary border-2 border-rounded bg-transparent">
         <div class="card-body ">
@@ -49,17 +49,26 @@
               <div>
                 <strong>Total</strong> <small>(including VAT)</small>
               </div>
-              <span><strong>Rs. <strong id="totalamount">{{totalamount}}</strong></strong></span>
+              <span>
+                <strong>Rs. <strong id="totalamount">{{totalamount}}</strong></strong>
+                {% comment %} {% if totalamount > 500 %}
+                  <br>
+                  (No delivery charge)
+
+                {% else %}
+                  <br>
+                  (Including Rs. 70 delivery charge)
+
+                {% endif %} {% endcomment %}
+              </span>
             </li>
           </ul>
-          
-          
-      
-          <div class="d-grid"><a href="{% url 'checkout' %}" class="btn btn-primary">Place Order</a></div>
+          <div class="d-grid">
+            <a href="{% url 'checkout' %}" class="btn btn-primary">Place Order</a>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 <div class="container">
