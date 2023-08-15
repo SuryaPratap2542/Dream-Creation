@@ -322,7 +322,36 @@ def delete_address(request, address_id):
     return redirect('address')  # Redirect to the address list page
 
 
+def explorer(request):
+    products = Product.objects.all()
+    return render(request, 'app/explorer.html', {'products': products})
 
 
+# from django.db.models import Q  # Import Q from django.db.models
 
 
+def search_results(request):
+    query = request.GET.get('q')
+    sort_option = request.GET.get('sort')
+    price_option = request.GET.get('price')
+
+    if query:
+        search_results = Product.objects.filter(title__icontains=query)
+        
+        if sort_option == 'low_to_high':
+            search_results = search_results.order_by('discounted_price')
+        elif sort_option == 'high_to_low':
+            search_results = search_results.order_by('-discounted_price')
+        
+        if price_option == 'above_500':
+            search_results = search_results.filter(discounted_price__gt=500)
+        elif price_option == 'below_500':
+            search_results = search_results.filter(discounted_price__lte=500)
+
+        context = {
+            'query': query,
+            'search_results': search_results,
+        }
+        return render(request, 'app/searchpage.html', context)
+    
+    return render(request, 'app/searchpage.html')

@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
- <!--Favicon -->
+  <!--Favicon -->
 
 
   <!-- Bootstrap CSS -->
@@ -30,15 +30,19 @@
 
 </head>
 
-<body >
+<body>
   <nav class="navbar navbar-expand-lg ">
     <div class="container">
-      <img src="{% static 'app/images/shopping-cart.png' %}" width="100" height="50" margin-left="-30px" class="logo" alt="">
-      <a class="navbar-brand text-warning" href="/"><span class="text-danger fs-2">D</span>ream<span class="text-danger fs-2">C</span>reation</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <a class="navbar-brand text-warning" href="/"> <img src="{% static 'app/images/shopping-cart.png' %}" width="100"
+          height="50" margin-left="-30px" class="logo" alt="">
+        <span class="text-danger fs-2">D</span>ream<span class="text-danger fs-2">C</span>reation</a>
+      <button class="navbar-toggler bg-warning text-dark" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span><img src="{% static 'app/images/toogle.png' %}" width="25" height="25"></span>
       </button>
+
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
@@ -65,12 +69,14 @@
             </ul>
           </li>
         </ul>
-        {% if request.user.is_authenticated %}
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-warning" type="submit">{{ request.user.username|first|upper }}</button>
+    <!-- Search product -->
+    
+        <form class="d-flex" action="{% url 'search_results' %}" method="GET">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+          <button class="btn btn-warning btn-outline-success" type="submit"> <i class="fas fa-search"></i></button>
         </form>
-        {%endif%}
+
+
         <div>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             {% if request.user.is_authenticated %}
@@ -87,10 +93,11 @@
               </ul>
             </li>
             <li class="nav-item mx-2">
-              <a href="{% url 'showcart' %}" class="nav-link text-white"><span class="badge bg-danger">{{cn}}</span> Cart
+              <a href="{% url 'showcart' %}" class="nav-link text-white"><span class="badge bg-danger">{{cn}}</span>
+                Cart
               </a>
             </li>
-             {% else %}
+            {% else %}
             <li class="nav-item mx-2">
               <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
             </li>
@@ -111,138 +118,142 @@
   {% block main-content3 %} {% endblock main-content3 %}
   {% block livesale %} {% endblock livesale %}
   {% block main-content4 %} {% endblock main-content4 %}
-  
+
 
 
   <!-- Footer -->
-<footer class="text-center text-lg-start bgc text-muted" >
-  <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom text-dark">
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block">
-      <span>Get connected with us on social networks:</span>
-    </div>
-    <!-- Left -->
-
-    <!-- Right -->
-    <div>
-      <a href="https://www.facebook.com/profile.php?id=100029290171764" class="me-4 text-dark">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://twitter.com/suryapratp788" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://www.youtube.com/c/DreamPoint" class="me-4 text-reset">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://www.instagram.com/suryapratap6473/" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/surya-pratap-singh-288bb4132/" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/SuryaPratap2542" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
-
-  <!-- Section: Links  -->
-  <section class="text-dark">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4 text-dark">
-            <img src="{% static 'app/images/shopping-cart.png' %}" width="100" height="50" margin-left="-30px" class="logo" alt="">
-            <a class="navbar-brand" href="/"><span class="text-danger fs-2">D</span>ream<span class="text-danger fs-2">C</span>reation</a>
-          </h6>
-          <p>
-            Shop with confidence at our e-commerce store. Discover a wide range of high-quality products at competitive prices. We are committed to delivering exceptional customer service and ensuring your satisfaction. Explore our collection today!
-          </p>
-          
-          
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-dark">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Products
-          </h6>
-          <p>
-            <a href="{% url 'topwear' %}" class="text-dark">Topwear</a>
-          </p>
-          <p>
-            <a href="{% url 'bottomwear' %}" class="text-dark">Bottomwear</a>
-          </p>
-          <p>
-            <a href="{% url 'mobile' %}" class="text-dark">Mobile</a>
-          </p>
-          <p>
-            <a href="{% url 'laptop' %}" class="text-dark">Laptop</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
-          </h6>
-          <p>
-            <a href="#!" class="text-dark">Pricing</a>
-          </p>
-          <p>
-            <a href="#!" class="text-dark">Settings</a>
-          </p>
-          <p>
-            <a href="#!" class="text-dark">Orders</a>
-          </p>
-          <p>
-            <a href="#!" class="text-dark">Help</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 ">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4 text-dark">Contact</h6>
-          <p><i class="fas fa-home me-3 text-dark"></i>Greater Noida, Gautam Budhnagar,India</p>
-          <p>
-            <i class="fas fa-envelope me-3 text-dark"></i>
-            SuryaPratap2542@gmail.com
-          </p>
-          <p><i class="fas fa-phone me-3 text-dark"></i> +91 78870705XX</p>
-          <p><i class="fas fa-print me-3 text-dark"></i> + 01 234 567 89</p>
-        </div>
-        <!-- Grid column -->
+  <footer class="text-center text-lg-start bgc text-muted">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom text-dark">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
       </div>
-      <!-- Grid row -->
-    </div>
-  </section>
-  <!-- Section: Links  -->
+      <!-- Left -->
 
-  <!-- Copyright -->
-  <div class="text-center p-4 bg-dark" >
-    © 2023 Copyright:
-    <a class=" text-light fw-bold" href="https://mdbootstrap.com/">DreamCreation</a>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
+      <!-- Right -->
+      <div>
+        <a href="https://www.facebook.com/profile.php?id=100029290171764" class="me-4 text-dark">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com/suryapratp788" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.youtube.com/c/DreamPoint" class="me-4 text-reset">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/suryapratap6473/" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/surya-pratap-singh-288bb4132/" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/SuryaPratap2542" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="text-dark">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4 text-dark">
+              <img src="{% static 'app/images/shopping-cart.png' %}" width="100" height="50" margin-left="-30px"
+                class="logo" alt="">
+              <a class="navbar-brand" href="/"><span class="text-danger fs-2">D</span>ream<span
+                  class="text-danger fs-2">C</span>reation</a>
+            </h6>
+            <p>
+              Shop with confidence at our e-commerce store. Discover a wide range of high-quality products at
+              competitive prices. We are committed to delivering exceptional customer service and ensuring your
+              satisfaction. Explore our collection today!
+            </p>
+
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-dark">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="{% url 'topwear' %}" class="text-dark">Topwear</a>
+            </p>
+            <p>
+              <a href="{% url 'bottomwear' %}" class="text-dark">Bottomwear</a>
+            </p>
+            <p>
+              <a href="{% url 'mobile' %}" class="text-dark">Mobile</a>
+            </p>
+            <p>
+              <a href="{% url 'laptop' %}" class="text-dark">Laptop</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-dark">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 ">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4 text-dark">Contact</h6>
+            <p><i class="fas fa-home me-3 text-dark"></i>Greater Noida, Gautam Budhnagar,India</p>
+            <p>
+              <i class="fas fa-envelope me-3 text-dark"></i>
+              SuryaPratap2542@gmail.com
+            </p>
+            <p><i class="fas fa-phone me-3 text-dark"></i> +91 78870705XX</p>
+            <p><i class="fas fa-print me-3 text-dark"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4 bg-dark">
+      © 2023 Copyright:
+      <a class=" text-light fw-bold" href="https://mdbootstrap.com/">DreamCreation</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
 
   {% comment %} <footer class="container-fluid bg-dark text-center p-2 mt-5">
     <small class="text-white">Copyright &copy; 2021 || Designed By GeekyShows || </small>
     <img src="{% static 'app/images/payment.png' %}" alt="" srcset="" class="img-fluid" height="2px">
-  </footer>  {% endcomment %}
+  </footer> {% endcomment %}
   <!-- End Footer -->
 
   <!-- Jquery -->

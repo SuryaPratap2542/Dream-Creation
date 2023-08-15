@@ -3,36 +3,38 @@
 {% block title %}Topwear{% endblock title %}
 {% block main-content %}
 <div class="container my-5">
- <div class="row">
-  <div class="col-sm-3">
-   <div class="list-group">
-    <a href="{% url 'topwear' %}" class="list-group-item list-group-item-action" aria-current="true">All Topwears</a>
-    <a href="{% url 'topweardata' 'Full-shirt' %}" class="list-group-item list-group-item-action" aria-current="true">Full-Shirt</a>
-    <a href="{% url 'topweardata' 'Half-shirt' %}" class="list-group-item list-group-item-action" aria-current="true">Half-Shirt</a>
-    <a href="{% url 'topweardata' 'T-shirt' %}" class="list-group-item list-group-item-action" aria-current="true">T-Shirt</a>
-    <a href="{% url 'topweardata' 'Other' %}" class="list-group-item list-group-item-action" aria-current="true">Other</a>
-    <a href="{% url 'topweardata' 'Below' %}" class="list-group-item list-group-item-action" aria-current="true">Below 500</a>
-    <a href="{% url 'topweardata' 'Above' %}" class="list-group-item list-group-item-action" aria-current="true">Above 500</a>
-
-
-   </div>
-  </div>
-  <div class="col-sm-9 ">
-   <div class="row " >
-    {% for t in topwears %}
-    <div class="col-sm-6 text-center mb-5 ">
-        <a href="{% url 'product-detail' t.id %}" class="btn">
-        <div class="item">
-            <img src="{{t.product_image.url}}" alt="" height="300" class="">
-            <div class="fw-bold">{{t.title}}</div>
-            <div class="fw-bold">{{t.discounted_price}} <small class="fw-light text-decoration-line-through">{{t.selling_price}}</small>
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Filter section -->
+            <div class="sticky-top">
+                <div class="list-group">
+                    <a href="{% url 'topwear' %}" class="list-group-item list-group-item-action {% if data is None %}active{% endif %}" aria-current="true">All Topwears</a>
+                    <a href="{% url 'topweardata' 'Full-shirt' %}" class="list-group-item list-group-item-action btn btn-outline-primary {% if data == 'Full-shirt' %}active{% endif %}" aria-current="true">Full-Shirt</a>
+                    <a href="{% url 'topweardata' 'Half-shirt' %}" class="list-group-item list-group-item-action btn btn-outline-primary {% if data == 'Half-shirt' %}active{% endif %}" aria-current="true">Half-Shirt</a>
+                    <a href="{% url 'topweardata' 'T-shirt' %}" class="list-group-item list-group-item-action btn btn-outline-primary {% if data == 'T-shirt' %}active{% endif %}" aria-current="true">T-Shirt</a>
+                    <a href="{% url 'topweardata' 'Other' %}" class="list-group-item list-group-item-action btn btn-outline-primary {% if data == 'Other' %}active{% endif %}" aria-current="true">Other</a>
+                    <a href="{% url 'topweardata' 'Below' %}" class="list-group-item list-group-item-action btn btn-outline-primary {% if data == 'Below' %}active{% endif %}" aria-current="true">Below 500</a>
+                    <a href="{% url 'topweardata' 'Above' %}" class="list-group-item list-group-item-action btn btn-outline-primary {% if data == 'Above' %}active{% endif %}" aria-current="true">Above 500</a>
+                </div>
             </div>
         </div>
-    </a>
+        <div class="col-md-9">
+            <!-- Product display section -->
+            <div class="row">
+                {% for b in topwears %}
+                <div class="col-md-4 mb-4 text-center">
+                    <div class="card item bg-transparent"> <!-- Add the bg-transparent class -->
+                        <img src="{{ b.product_image.url }}" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ b.title }}</h5>
+                            <p class="card-text">Price: {{ b.discounted_price }}</p>
+                            <a href="{% url 'product-detail' b.id %}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    {% endfor %}
-   </div>
-  </div>
- </div>
 </div>
 {% endblock main-content %}

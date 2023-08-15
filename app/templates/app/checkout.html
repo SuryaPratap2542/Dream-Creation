@@ -1,10 +1,13 @@
 {% extends 'app/base.html' %}
 {% load static %}
+
 {% block title %}Buy Now{% endblock title %}
+
 {% block main-content %}
 <div class="container">
   <div class="row mt-5">
     {% if messages %}
+    <!-- Messages -->
     <div class="container d-flex justify-content-center align-items-center mb-5">
       <div class="messages text-center">
         {% for message in messages %}
@@ -15,6 +18,7 @@
     {% endif %}
 
     <div class="col-sm-6">
+      <!-- Order Summary -->
       <h4>Order Summary</h4>
       <hr>
       {% for item in cart_items %}
@@ -22,7 +26,7 @@
         <div class="card-body">
           <h5>Product: {{item.product.title}}</h5>
           <p>Quantity: {{item.quantity}}</p>
-          <p class="fw-bold">Price:{{item.total_cost}}</p>
+          <p class="fw-bold">Price: {{item.total_cost}}</p>
         </div>
       </div>
       {% endfor %}
@@ -37,17 +41,18 @@
         <strong>Refunds:</strong> Cancellation policy applies before shipping.<br>
         <strong>Returns and Exchanges:</strong> Returns accepted within [number of days] days of delivery.</small>
     </div>
+
     <div class="col-sm-4 offset-sm-1">
+      <!-- Select Shipping Address -->
       <h4>Select Shipping Address</h4>
       <hr>
-
 
       <form action="{% url 'paymentdone' %}" method="post">
         {% csrf_token %}
 
         {% if messages %}
+        <!-- Display existing addresses -->
         {% for ad in add%}
-
         <div class="card bg-transparent border border-danger border-2 border-rounded mb-1">
           <div class="card-body">
             <h5>{{ad.name}}</h5>
@@ -61,8 +66,8 @@
         </div>
         {% endfor %}
         {% else %}
+        <!-- Display new addresses -->
         {% for ad in add%}
-
         <div class="card bg-transparent border border-primary border-2 border-rounded mb-1">
           <div class="card-body">
             <h5>{{ad.name}}</h5>
@@ -78,6 +83,7 @@
         {% endif %}
 
         <div class="text-start">
+          <!-- Continue button -->
           <button type="submit" class="btn btn-warning mt-2 px-5 fw-bold">Continue</button>
         </div>
       </form>

@@ -58,12 +58,12 @@ urlpatterns = [
     path('registration/', views.CustomerRegistrationView.as_view(), name='customerregistration'),
 
      # Address related URLs
-    # path('address/', views.address, name='address'),
-    # path('add_address/', views.add_address, name='add_address'),
+
     path('edit_address/<int:address_id>/', editAddress.as_view(), name='edit_address'),
     path('delete_address/<int:address_id>/', delete_address, name='delete_address'),
 
-    # path('delete_address/<int:address_id>/', views.delete_address, name='delete_address'),
+    path('explorer/', views.explorer, name='explorer'),
+    path('search/', views.search_results, name='search_results'),
 
 ] 
 urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

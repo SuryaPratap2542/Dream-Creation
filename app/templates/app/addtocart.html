@@ -6,15 +6,16 @@
 <div class="container my-5">
   <div class="row">
     <h1 class="text-center mb-5">Shopping Cart</h1>
-    <div class="col-sm-8">
-      <div class="card border border-primary border-2 border-rounded bg-transparent ">
-        <div class="card-body ">
+    <div class="col-sm-12 col-md-8">
+      <div class="card border border-primary border-2 border-rounded bg-transparent">
+        <div class="card-body">
           <h3>Cart</h3>
-          {% for cart in carts%}
+          {% for cart in carts %}
           <hr>
-          <div class="row ">
-            <div class="col-sm-3 text-center align-self-center"><img src="{{cart.product.product_image.url}}" alt=""
-                srcset="" class="img-fluid  shadow-sm" height="150" width="150"> </div>
+          <div class="row">
+            <div class="col-sm-3 text-center align-self-center">
+              <img src="{{cart.product.product_image.url}}" alt="" class="img-fluid shadow-sm" height="150" width="150">
+            </div>
             <div class="col-sm-9">
               <div>
                 <h5>{{cart.product.title}}</h5>
@@ -26,7 +27,7 @@
                   <a class="plus-cart btn" pid="{{cart.product.id}}"><i class="fas fa-plus-square fa-lg"></i></a>
                   <a href="#" class="btn btn-sm btn-secondary mr-3 remove_cart bg-danger" pid="{{cart.product.id}}">Remove item</a>
                 </div>
-                <div class="text-end ">
+                <div class="text-end">
                   <p class="mb-1"><span><strong>Rs. {{cart.product.discounted_price}}</strong></span></p>
                 </div>
               </div>
@@ -37,9 +38,9 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-12 col-md-4 mt-4 mt-md-0">
       <div class="card border border-primary border-2 border-rounded bg-transparent">
-        <div class="card-body ">
+        <div class="card-body">
           <h3>The Total Amount of</h3>
           <ul class="list-group border-primary rounded overflow-hidden">
             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0 bg-transparent">
@@ -51,15 +52,16 @@
               </div>
               <span>
                 <strong>Rs. <strong id="totalamount">{{totalamount}}</strong></strong>
-                {% comment %} {% if totalamount > 500 %}
+                <!-- You can add comments here to explain the delivery charge logic -->
+                <!--
+                {% if totalamount > 500 %}
                   <br>
                   (No delivery charge)
-
                 {% else %}
                   <br>
                   (Including Rs. 70 delivery charge)
-
-                {% endif %} {% endcomment %}
+                {% endif %}
+                -->
               </span>
             </li>
           </ul>
@@ -71,11 +73,11 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container mt-4">
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-5">
       <div class="card border border-primary border-2 border-rounded bg-transparent">
-        <div class="card-body">
+        <div class="card-body ">
           <h5 class="mb-4">We accept</h5>
           <img src="{% static 'app/images/payment.png' %}" alt="" class="img-fluid">
         </div>

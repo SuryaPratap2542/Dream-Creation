@@ -108,10 +108,12 @@ p {
     margin: 25px;
 }
 
+/* Your existing button style */
 button.normal {
     font-size: 14px;
     font-weight: 600;
     padding: 15px 30px;
+    text-decoration-color: red;
     color: rgb(220, 48, 48);
     background-color: rgb(232, 219, 219);
     border-radius: 4px;
@@ -120,6 +122,13 @@ button.normal {
     outline: none;
     transition: 0.2s;
 }
+
+/* Hover effect */
+button.normal:hover {
+    background-color: #088178;
+    color: #fff;
+}
+
 
 /*//livesale */
 .ban{
@@ -160,10 +169,6 @@ button.normal {
     color: rgb(214, 95, 95);
 }
 
-#banner button:hover {
-    background-color: #088178;
-    color: #fff;
-}
 
 @media (max-width:799px) {
     #banner {
