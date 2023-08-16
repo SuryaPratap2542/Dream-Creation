@@ -18,11 +18,7 @@ class ProductView(View):
         bottomwears = Product.objects.filter(category='BW')
         mobiles = Product.objects.filter(category='M')
         laptops = Product.objects.filter(category='L')
-        cn = 0
-        if request.user.is_authenticated:
-            user = request.user
-            cn = Cart.objects.filter(user=user).count()
-        return render(request, 'app/home.html', {'topwears': topwears, 'bottomwears': bottomwears, 'mobiles': mobiles, 'laptops': laptops, 'cn': cn})
+        return render(request, 'app/home.html', {'topwears': topwears, 'bottomwears': bottomwears, 'mobiles': mobiles, 'laptops': laptops})
 
 
 class ProductDetailView(View):
@@ -33,7 +29,7 @@ class ProductDetailView(View):
         bottomwears = Product.objects.filter(category='BW')
         mobiles = Product.objects.filter(category='M')
         laptops = Product.objects.filter(category='L')
-        cn = 0
+        cn=0
         if request.user.is_authenticated:
             user = request.user
             cn = Cart.objects.filter(user=user).count()
@@ -331,27 +327,34 @@ def explorer(request):
 
 
 def search_results(request):
-    query = request.GET.get('q')
-    sort_option = request.GET.get('sort')
-    price_option = request.GET.get('price')
+    query = request.GET.get('q')  # Get the user's search query from the URL parameters
+    sort_option = request.GET.get('sort')  # Get the sorting option from the URL parameters
+    price_option = request.GET.get('price')  # Get the price range option from the URL parameters
 
     if query:
-        search_results = Product.objects.filter(title__icontains=query)
+        # Filter products based on the title containing the user's query
+        search_results = Product.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
         
         if sort_option == 'low_to_high':
+            # Sort the search results in ascending order of discounted price
             search_results = search_results.order_by('discounted_price')
         elif sort_option == 'high_to_low':
+            # Sort the search results in descending order of discounted price
             search_results = search_results.order_by('-discounted_price')
         
         if price_option == 'above_500':
+            # Filter search results for products with discounted price above 500
             search_results = search_results.filter(discounted_price__gt=500)
         elif price_option == 'below_500':
+            # Filter search results for products with discounted price below or equal to 500
             search_results = search_results.filter(discounted_price__lte=500)
 
+        # Prepare the context to be passed to the template for rendering
         context = {
             'query': query,
             'search_results': search_results,
         }
         return render(request, 'app/searchpage.html', context)
     
+    # If there's no query, render the search page without any results
     return render(request, 'app/searchpage.html')

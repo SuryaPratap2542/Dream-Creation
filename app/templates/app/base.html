@@ -93,10 +93,12 @@
               </ul>
             </li>
             <li class="nav-item mx-2">
-              <a href="{% url 'showcart' %}" class="nav-link text-white"><span class="badge bg-danger">{{cn}}</span>
-                Cart
+              <a href="{% url 'showcart' %}" class="nav-link text-white">
+                  <span class="badge bg-danger">{{ cart_count }}</span>
+                  Cart
               </a>
-            </li>
+          </li>
+          
             {% else %}
             <li class="nav-item mx-2">
               <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
