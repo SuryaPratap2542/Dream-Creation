@@ -8,7 +8,7 @@
             <img src="{{product.product_image.url}}" alt="" class="img-fluid">
         </div>
         <div class="col-sm-12 col-md-5 offset-md-1">
-            <h2>{{product.title}}</h2>
+            <h3 class="strong fw-bold">{{product.title}}</h3>
             <hr>
             <p>Product Description: {{product.description}}</p> <br>
             <h4>Rs. {{product.discounted_price}}
@@ -49,43 +49,66 @@
 {% if product.category == 'TW' %}
 <!-- 1st Product Slider -->
 <div class="mx-3">
-    <h4 class="alert alert-danger text-dark fw-bold text-center">More related Products</h4>
-    <!-- Slider 2 -->
-    <div class="owl-carousel" id="slider2">
-        {% for t in topwears %}
-        {% if t.brand == product.brand %}
-        <a href="{% url 'product-detail' t.id %}" class="btn border border-primary border-2">
-            <div class="item ">
-              <img src="{{t.product_image.url}}" alt="" height="200px">
-              <hr class="text-dark">
-              <span class="fw-bold ">{{t.title}}</span><br>
-              <span class="fs-5">Rs. {{t.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{t.selling_price}}</small></span>
+    <h4 class="alert alert-danger text-dark fw-bold text-center">More related product</h4>
+    <!-- Slider 3 -->
+    <div class="owl-carousel" id="slider3">
+      {% for m in topwears %}
+      <div class="border border-primary border-2 product-card text-center p-3"> <!-- Added text-center for center alignment -->
+        <a href="{% url 'product-detail' m.id %}" class="item bg-transparent">
+          <div class="aspect-ratio aspect-ratio-1x1 d-flex align-items-center">
+            <img src="{{m.product_image.url}}" alt="" height="250px">
+          </div>
+        </a>
+        <!-- Horizontal line -->
+        <hr class="text-dark">
+        <!-- Product title -->
+        <span class="fw-bold fs-4"><small>{{m.title}}</small></span><br>
+        <!-- Product prices -->
+        <span class="fs-5">Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+        <div class="mt-3">
+            <div class="row">
+                <div class="col-md-12 mb-2 text-center"> <!-- Center-aligning the button -->
+                    <!-- View Detail button -->
+                    <a href="{% url 'product-detail' m.id %}" class="btn btn-primary btn-sm">View Detail</a>
+                </div>
             </div>
-          </a>
-        {% endif %}
-        {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
     </div>
 </div>
 <!-- End 1st Product Slider -->
 
+
 {% elif product.category == 'BW' %}
 <!-- 2nd Product Slider (Bottom Wears) -->
 <div class="mx-3">
-    <h4 class="alert alert-danger text-dark fw-bold text-center">More related Products</h4>
-    <!-- Slider for Bottom Wears -->
-    <div class="owl-carousel" id="slider1">
-        {% for b in bottomwears %}
-        {% if b.brand == product.brand %}
-        <a href="{% url 'product-detail' b.id %}" class="btn border border-primary border-2">
-            <div class="item ">
-              <img src="{{b.product_image.url}}" alt="" height="200px">
-              <hr class="text-dark">
-              <span class="fw-bold ">{{b.title}}</span><br>
-              <span class="fs-5">Rs. {{b.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{b.selling_price}}</small></span>
+    <h4 class="alert alert-danger text-dark fw-bold text-center">More related product</h4>
+    <!-- Slider 3 -->
+    <div class="owl-carousel" id="slider3">
+      {% for m in bottomwears %}
+      <div class="border border-primary border-2 product-card text-center p-3"> <!-- Added text-center for center alignment -->
+        <a href="{% url 'product-detail' m.id %}" class="item bg-transparent">
+          <div class="aspect-ratio aspect-ratio-1x1 d-flex align-items-center">
+            <img src="{{m.product_image.url}}" alt="" height="250px">
+          </div>
+        </a>
+        <!-- Horizontal line -->
+        <hr class="text-dark">
+        <!-- Product title -->
+        <span class="fw-bold fs-4"><small>{{m.title}}</small></span><br>
+        <!-- Product prices -->
+        <span class="fs-5">Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+        <div class="mt-3">
+            <div class="row">
+                <div class="col-md-12 mb-2 text-center"> <!-- Center-aligning the button -->
+                    <!-- View Detail button -->
+                    <a href="{% url 'product-detail' m.id %}" class="btn btn-primary btn-sm">View Detail</a>
+                </div>
             </div>
-          </a>
-        {% endif %}
-        {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
     </div>
 </div>
 <!-- End 2nd Product Slider (Bottom Wears) -->
@@ -93,21 +116,32 @@
 {% elif product.category == 'M' %}
 <!-- 3rd Product Slider (Mobiles) -->
 <div class="mx-3">
-    <h4 class="alert alert-danger text-dark fw-bold text-center">More related Products</h4>
-    <!-- Slider for Mobiles -->
-    <div class="owl-carousel" id="slider5">
-        {% for m in mobiles %}
-        {% if m.brand == product.brand %}
-        <a href="{% url 'product-detail' m.id %}" class="btn border border-primary border-2">
-            <div class="item ">
-              <img src="{{m.product_image.url}}" alt="" height="200px">
-              <hr class="text-dark">
-              <span class="fw-bold ">{{m.title}}</span><br>
-              <span class="fs-5">Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+    <h4 class="alert alert-danger text-dark fw-bold text-center">More related product</h4>
+    <!-- Slider 3 -->
+    <div class="owl-carousel" id="slider3">
+      {% for m in mobiles %}
+      <div class="border border-primary border-2 product-card text-center p-3"> <!-- Added text-center for center alignment -->
+        <a href="{% url 'product-detail' m.id %}" class="item bg-transparent">
+          <div class="aspect-ratio aspect-ratio-1x1 d-flex align-items-center">
+            <img src="{{m.product_image.url}}" alt="" class="img-fluid">
+          </div>
+        </a>
+        <!-- Horizontal line -->
+        <hr class="text-dark">
+        <!-- Product title -->
+        <span class="fw-bold fs-4"><small>{{m.title}}</small></span><br>
+        <!-- Product prices -->
+        <span class="fs-5">Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+        <div class="mt-3">
+            <div class="row">
+                <div class="col-md-12 mb-2 text-center"> <!-- Center-aligning the button -->
+                    <!-- View Detail button -->
+                    <a href="{% url 'product-detail' m.id %}" class="btn btn-primary btn-sm">View Detail</a>
+                </div>
             </div>
-          </a>
-        {% endif %}
-        {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
     </div>
 </div>
 <!-- End 3rd Product Slider (Mobiles) -->
@@ -115,23 +149,273 @@
 {% elif product.category == 'L' %}
 <!-- 4th Product Slider (Laptops) -->
 <div class="mx-3">
-    <h4 class="alert alert-danger text-dark fw-bold text-center">More related Products</h4>
-    <!-- Slider for Laptops -->
-    <div class="owl-carousel" id="slider4">
-        {% for m in laptops %}
-        {% if m.brand == product.brand %}
-        <a href="{% url 'product-detail' m.id %}" class="btn border border-primary border-2">
-            <div class="item ">
-              <img src="{{m.product_image.url}}" alt="" height="200px">
-              <hr class="text-dark">
-              <span class="fw-bold ">{{m.title}}</span><br>
-              <span class="fs-5">Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+    <h4 class="alert alert-danger text-dark fw-bold text-center">More related product</h4>
+    <!-- Slider 3 -->
+    <div class="owl-carousel" id="slider3">
+      {% for m in laptops %}
+      <div class="border border-primary border-2 product-card text-center p-3"> <!-- Added text-center for center alignment -->
+        <a href="{% url 'product-detail' m.id %}" class="item bg-transparent">
+          <div class="aspect-ratio aspect-ratio-1x1 d-flex align-items-center">
+            <img src="{{m.product_image.url}}" alt="" height="200px">
+          </div>
+        </a>
+        <!-- Horizontal line -->
+        <hr class="text-dark">
+        <!-- Product title -->
+        <span class="fw-bold fs-4"><small>{{m.title}}</small></span><br>
+        <!-- Product prices -->
+        <span class="fs-5">Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+        <div class="mt-3">
+            <div class="row">
+                <div class="col-md-12 mb-2 text-center"> <!-- Center-aligning the button -->
+                    <!-- View Detail button -->
+                    <a href="{% url 'product-detail' m.id %}" class="btn btn-primary btn-sm">View Detail</a>
+                </div>
             </div>
-          </a>
-        {% endif %}
-        {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
     </div>
 </div>
 <!-- End 4th Product Slider (Laptops) -->
 {% endif %}
-{% endblock main-content2 %}
+
+<main class="main">
+
+    <section class="card-area">
+  
+        <!-- Card: City -->
+        <section class="card-section">
+            <div class="maincard">
+                <div class="flip-card">
+                    <div class="flip-card__container">
+                        <div class="card-front">
+                            <div class="card-front__tp card-front__tp--city">
+                                <img src="{% static 'app/images/lap.png' %}"alt="">
+                                <h2 class="card-front__heading">
+                                    Laptop
+                                </h2>
+                                <p class="card-front__text-price">
+                                    From RS 20K
+                                </p>
+                            </div>
+  
+                            <div class="card-front__bt">
+                                <p class="card-front__text-view card-front__text-view--city">
+                                    View me
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <video class="video__container" autoplay muted loop>
+                                <source class="video__media" src="{% static 'app/images/comp.mp4' %}" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+  
+                <div class="inside-page">
+                    <div class="inside-page__container">
+                        <h3 class="inside-page__heading inside-page__heading--city">
+                            Laptops
+                        </h3>
+                        <p class="inside-page__text">
+                            Purchase your laptop with your specification !
+                        </p>
+                        <a  href="{% url 'laptop' %}" class="inside-page__btn inside-page__btn--city">View deals</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+        <!-- Card: Ski -->
+        <section class="card-section">
+            <div class="maincard">
+                <div class="flip-card">
+                    <div class="flip-card__container">
+                        <div class="card-front">
+                            <div class="card-front__tp card-front__tp--ski">
+                                <img src="{% static 'app/images/phone.png' %}" alt="">
+                                <h2 class="card-front__heading">
+                                    Mobiles
+                                </h2>
+                                <p class="card-front__text-price">
+                                    From Rs 5K
+                                </p>
+                            </div>
+  
+                            <div class="card-front__bt">
+                                <p class="card-front__text-view card-front__text-view--ski">
+                                    View me
+                                </p>
+                            </div>
+                        </div>
+  
+                        <div class="card-back">
+                            <video class="video__container" autoplay muted loop>
+                                <source class="video__media" src="{% static 'app/images/smart.mp4' %}" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+  
+                <div class="inside-page">
+                    <div class="inside-page__container">
+                        <h3 class="inside-page__heading inside-page__heading--ski">
+                            Phone Lovers
+                        </h3>
+                        <p class="inside-page__text">
+                            Need new Smart phones? Get it now fast it's limited!
+                        </p>
+                        <a  href="{% url 'mobile' %}" class="inside-page__btn inside-page__btn--ski">View deals</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+        <!-- Card: Beach -->
+        <section class="card-section">
+            <div class="maincard">
+                <div class="flip-card">
+                    <div class="flip-card__container">
+                        <div class="card-front">
+                            <div class="card-front__tp card-front__tp--beach">
+                                <img src="{% static 'app/images/shirt.png' %}" alt="">
+  
+                                <h2 class="card-front__heading">
+                                    Topwear
+                                </h2>
+                                <p class="card-front__text-price">
+                                    From Rs 100
+                                </p>
+                            </div>
+  
+                            <div class="card-front__bt">
+                                <p class="card-front__text-view card-front__text-view--beach">
+                                    View me
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <video class="video__container" autoplay muted loop>
+                                <source class="video__media" src="{% static 'app/images/top.mp4' %}" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="inside-page">
+                  <div class="inside-page__container">
+                    <h3 class="inside-page__heading inside-page__heading--beach">
+                      Trendy look
+                    </h3>
+                      <p class="inside-page__text">
+                        Shop trendy clothes here with good delas and ofeers!
+                      </p>
+                      <a  href="{% url 'topwear' %}" class="inside-page__btn inside-page__btn--beach">View deals</a>
+                    </div>
+              </div> 
+  
+            </div>
+        </section>
+  
+        <!-- Card: Camping -->
+        <section class="card-section">
+            <div class="maincard">
+                <div class="flip-card">
+                    <div class="flip-card__container">
+                        <div class="card-front">
+                            <div class="card-front__tp card-front__tp--camping">
+                                <img src="{% static 'app/images/jeans.png' %}" alt="">
+                               
+                                <h2 class="card-front__heading">
+                                    Bottomwear
+                                </h2>
+                                <p class="card-front__text-price">
+                                    From Rs 300
+                                </p>
+                            </div>
+  
+                            <div class="card-front__bt">
+                                <p class="card-front__text-view card-front__text-view--camping">
+                                    View me
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <video class="video__container" autoplay muted loop>
+                                <source class="video__media"src="{% static 'app/images/bot.mp4' %}" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+  
+                <div class="inside-page">
+                    <div class="inside-page__container">
+                        <h3 class="inside-page__heading inside-page__heading--camping">
+                            Attractive look
+                        </h3>
+                        <p class="inside-page__text">
+                            Get your paints and jeans. it will out of stock soon do fast!
+                        </p>
+                        <a  href="{% url 'bottomwear' %}" class="inside-page__btn inside-page__btn--camping">View deals</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Card: Camping -->
+        <section class="card-section">
+            <div class="maincard">
+                <div class="flip-card">
+                    <div class="flip-card__container">
+                        <div class="card-front">
+                            <div class="card-front__tp card-front__tp--camping">
+                                <img src="{% static 'app/images/jeans.png' %}" alt="">
+                               
+                                <h2 class="card-front__heading">
+                                    Bottomwear
+                                </h2>
+                                <p class="card-front__text-price">
+                                    From Rs 300
+                                </p>
+                            </div>
+  
+                            <div class="card-front__bt">
+                                <p class="card-front__text-view card-front__text-view--camping">
+                                    View me
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <video class="video__container" autoplay muted loop>
+                                <source class="video__media"src="{% static 'app/images/bot.mp4' %}" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+  
+                <div class="inside-page">
+                    <div class="inside-page__container">
+                        <h3 class="inside-page__heading inside-page__heading--camping">
+                            Attractive look
+                        </h3>
+                        <p class="inside-page__text">
+                            Get your paints and jeans. it will out of stock soon do fast!
+                        </p>
+                        <a  href="{% url 'bottomwear' %}" class="inside-page__btn inside-page__btn--camping">View deals</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+  
+  </main>
+
+
+
+  {% endblock main-content2 %}
+
+{% comment %} {% block card %} {% endcomment %}
+
+{% comment %} {% endblock card %} {% endcomment %}
+

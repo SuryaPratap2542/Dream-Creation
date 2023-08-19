@@ -47,6 +47,18 @@ def add_to_cart(request):
     Cart(user=user, product=product).save()
     return redirect('/cart')
 
+def addtocart(request):
+    if request.method == 'POST':
+        user = request.user
+        product_id = request.POST.get('prod_id')
+        product = Product.objects.get(id=product_id)
+        Cart(user=user, product=product).save()
+        return redirect('/cart')
+    else:
+        # Handle other HTTP methods or provide a default response
+        pass
+
+
 
 @login_required
 def show_cart(request):

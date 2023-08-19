@@ -24,7 +24,7 @@
                 {% for b in topwears %}
                 <div class="col-md-4 mb-4 text-center">
                     <div class="card item bg-transparent"> <!-- Add the bg-transparent class -->
-                        <img src="{{ b.product_image.url }}" class="card-img-top" alt="Product Image">
+                        <img src="{{ b.product_image.url }}" class="card-img-top" alt="Product Image" height="250px">
                         <div class="card-body">
                             <h5 class="card-title">{{ b.title }}</h5>
                             <p class="card-text">Price: {{ b.discounted_price }}</p>

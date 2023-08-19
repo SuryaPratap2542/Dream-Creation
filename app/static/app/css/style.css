@@ -65,6 +65,16 @@ nav{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
+
+  .product-card {
+    border: 2px solid #ced4da;
+    transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .product-card:hover {
+    transform: scale(1.05);
+    border-color: red;
+  }
       
 * {
     margin: 0;
@@ -168,6 +178,9 @@ button.normal:hover {
 #banner h2 span {
     color: rgb(214, 95, 95);
 }
+.all_product_image{
+    height: 200px;
+}
 
 
 @media (max-width:799px) {
@@ -202,7 +215,9 @@ button.normal:hover {
         font-weight: 600;
         padding: 9px 28px;
     }
-
+    .all_product_image{
+        height: 100px;
+    }
 }
 
 
@@ -243,4 +258,4 @@ button.normal:hover {
 
 }
 
-  
+

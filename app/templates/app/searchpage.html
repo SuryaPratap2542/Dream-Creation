@@ -45,7 +45,7 @@
                 {% for product in search_results %}
                     <div class="col-md-4 mb-4 text-center">
                         <div class="card item bg-transparent"> <!-- Add the bg-transparent class -->
-                            <img src="{{ product.product_image.url }}" class="card-img-top" alt="Product Image">
+                            <img src="{{ product.product_image.url }}" class="card-img-top" alt="Product Image" height="250px">
                             <div class="card-body">
                                 <h5 class="card-title">{{ product.title }}</h5>
                                 <p class="card-text">Price: {{ product.discounted_price }}</p>

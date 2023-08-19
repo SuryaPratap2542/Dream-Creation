@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+</head>
+<body>
+    <button class="chatbox-open">
+        <i class="fa fa-comment fa-2x" aria-hidden="true"></i>
+    </button>
+    <button class="chatbox-close">
+        <i class="fa fa-close fa-2x" aria-hidden="true"></i>
+    </button>
+    <section class="chatbox-popup">
+        <header class="chatbox-popup__header">
+            <aside style="flex:3">
+                <i class="fa fa-user-circle fa-4x chatbox-popup__avatar" aria-hidden="true"></i>
+            </aside>
+            <aside style="flex:8">
+                <h1>Sussanah Austin</h1> Agent (Online)
+            </aside>
+        </header>
+        <main class="chatbox-popup__main" id="chatbox-popup-messages">
+            <!-- Conversation messages will be displayed here -->
+        </main>
+        <footer class="chatbox-popup__footer">
+            <aside style="flex:1;color:#888;text-align:center;">
+                <i class="fa fa-camera" aria-hidden="true"></i>
+            </aside>
+            <aside style="flex:10">
+                <textarea id="chatbox-popup-input" placeholder="Type your message here..." autofocus></textarea>
+            </aside>
+            <aside style="flex:1;color:#888;text-align:center;">
+                <i class="fa fa-paper-plane" aria-hidden="true" id="chatbox-popup-send-button"></i>
+            </aside>
+        </footer>
+    </section>
+    
+  
+    
+    <script>
+        const chatboxPopupMessagesDiv = document.getElementById("chatbox-popup-messages");
+        const chatboxPopupInput = document.getElementById("chatbox-popup-input");
+        const chatboxPopupSendButton = document.getElementById("chatbox-popup-send-button");
+    
+        // Load previous messages from local storage when the page loads
+        const savedMessages = JSON.parse(localStorage.getItem("chatboxPopupMessages")) || [];
+        savedMessages.forEach(savedMessage => {
+            displayChatboxPopupMessage(savedMessage.message, savedMessage.sender);
+        });
+    
+        chatboxPopupSendButton.addEventListener("click", sendChatboxPopupMessage);
+    
+        function sendChatboxPopupMessage() {
+            const userMessage = chatboxPopupInput.value.trim();
+            if (userMessage !== "") {
+                displayChatboxPopupMessage(userMessage, "user");
+                respondToChatboxPopupMessage(userMessage);
+                chatboxPopupInput.value = "";
+    
+                // Save the messages to local storage
+                const messagesToSave = JSON.parse(localStorage.getItem("chatboxPopupMessages")) || [];
+                messagesToSave.push({ message: userMessage, sender: "user" });
+                localStorage.setItem("chatboxPopupMessages", JSON.stringify(messagesToSave));
+            }
+        }
+    
+        function displayChatboxPopupMessage(message, sender) {
+            const messageDiv = document.createElement("div");
+            messageDiv.className = `message ${sender}`;
+            messageDiv.textContent = message;
+            chatboxPopupMessagesDiv.appendChild(messageDiv);
+            chatboxPopupMessagesDiv.scrollTop = chatboxPopupMessagesDiv.scrollHeight;
+        }
+    
+        function respondToChatboxPopupMessage(message) {
+            const response = getChatboxPopupResponse(message);
+            displayChatboxPopupMessage(response, "bot");
+    
+            // Save the bot's response to local storage
+            const messagesToSave = JSON.parse(localStorage.getItem("chatboxPopupMessages")) || [];
+            messagesToSave.push({ message: response, sender: "bot" });
+            localStorage.setItem("chatboxPopupMessages", JSON.stringify(messagesToSave));
+        }
+    
+        function getChatboxPopupResponse(message) {
+            // Define your response logic here
+            // For this example, let's use a simple predefined response
+            if (message.toLowerCase().includes("hi")) {
+                return "Hello! How can I assist you?";
+            } else if (message.toLowerCase().includes("how are you")) {
+                return "I'm just a chatbot, but I'm here to help!";
+            } else {
+                return "I'm here to assist you!";
+            }
+        }
+    </script>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>
+
+   
+

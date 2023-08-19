@@ -34,6 +34,289 @@
 <!-- End Banner Slider -->
 {% endblock banner_slider %}
 
+{% block card %}
+<main class="main">
+
+  <section class="card-area">
+
+      <!-- Card: Laptop -->
+      <section class="card-section">
+          <div class="maincard">
+              <div class="flip-card">
+                  <div class="flip-card__container">
+                      <div class="card-front">
+                          <div class="card-front__tp card-front__tp--city">
+                              <img src="{% static 'app/images/lap.png' %}"alt="">
+                              <h2 class="card-front__heading">
+                                  Laptop
+                              </h2>
+                              <p class="card-front__text-price">
+                                  From RS 20K
+                              </p>
+                          </div>
+
+                          <div class="card-front__bt">
+                              <p class="card-front__text-view card-front__text-view--city">
+                                  View me
+                              </p>
+                          </div>
+                      </div>
+                      <div class="card-back">
+                          <video class="video__container" autoplay muted loop>
+                              <source class="video__media" src="{% static 'app/images/comp.mp4' %}" type="video/mp4">
+                          </video>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="inside-page">
+                  <div class="inside-page__container">
+                      <h3 class="inside-page__heading inside-page__heading--city">
+                          Laptops
+                      </h3>
+                      <p class="inside-page__text">
+                          Purchase your laptop with your specification !
+                      </p>
+                      <a  href="{% url 'laptop' %}" class="inside-page__btn inside-page__btn--city">View deals</a>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Card: Mobiles -->
+      <section class="card-section">
+          <div class="maincard">
+              <div class="flip-card">
+                  <div class="flip-card__container">
+                      <div class="card-front">
+                          <div class="card-front__tp card-front__tp--ski">
+                              <img src="{% static 'app/images/phone.png' %}" alt="">
+                              <h2 class="card-front__heading">
+                                  Mobiles
+                              </h2>
+                              <p class="card-front__text-price">
+                                  From Rs 5K
+                              </p>
+                          </div>
+
+                          <div class="card-front__bt">
+                              <p class="card-front__text-view card-front__text-view--ski">
+                                  View me
+                              </p>
+                          </div>
+                      </div>
+
+                      <div class="card-back">
+                          <video class="video__container" autoplay muted loop>
+                              <source class="video__media" src="{% static 'app/images/smart.mp4' %}" type="video/mp4">
+                          </video>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="inside-page">
+                  <div class="inside-page__container">
+                      <h3 class="inside-page__heading inside-page__heading--ski">
+                          Phone Lovers
+                      </h3>
+                      <p class="inside-page__text">
+                          Need new Smart phones? Get it now fast it's limited!
+                      </p>
+                      <a  href="{% url 'mobile' %}" class="inside-page__btn inside-page__btn--ski">View deals</a>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Card: Topwear -->
+      <section class="card-section">
+          <div class="maincard">
+              <div class="flip-card">
+                  <div class="flip-card__container">
+                      <div class="card-front">
+                          <div class="card-front__tp card-front__tp--beach">
+                              <img src="{% static 'app/images/shirt.png' %}" alt="">
+
+                              <h2 class="card-front__heading">
+                                  Topwear
+                              </h2>
+                              <p class="card-front__text-price">
+                                  From Rs 100
+                              </p>
+                          </div>
+
+                          <div class="card-front__bt">
+                              <p class="card-front__text-view card-front__text-view--beach">
+                                  View me
+                              </p>
+                          </div>
+                      </div>
+                      <div class="card-back">
+                          <video class="video__container" autoplay muted loop>
+                              <source class="video__media" src="{% static 'app/images/top.mp4' %}" type="video/mp4">
+                          </video>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="inside-page">
+                <div class="inside-page__container">
+                  <h3 class="inside-page__heading inside-page__heading--beach">
+                    Trendy look
+                  </h3>
+                    <p class="inside-page__text">
+                      Shop trendy clothes here with good delas and ofeers!
+                    </p>
+                    <a  href="{% url 'topwear' %}" class="inside-page__btn inside-page__btn--beach">View deals</a>
+                  </div>
+            </div> 
+
+          </div>
+      </section>
+
+      <!-- Card: Bottomwear -->
+      <section class="card-section">
+          <div class="maincard">
+              <div class="flip-card">
+                  <div class="flip-card__container">
+                      <div class="card-front">
+                          <div class="card-front__tp card-front__tp--camping">
+                              <img src="{% static 'app/images/jeans.png' %}" alt="">
+                             
+                              <h2 class="card-front__heading">
+                                  Bottomwear
+                              </h2>
+                              <p class="card-front__text-price">
+                                  From Rs 300
+                              </p>
+                          </div>
+
+                          <div class="card-front__bt">
+                              <p class="card-front__text-view card-front__text-view--camping">
+                                  View me
+                              </p>
+                          </div>
+                      </div>
+                      <div class="card-back">
+                          <video class="video__container" autoplay muted loop>
+                              <source class="video__media"src="{% static 'app/images/bot.mp4' %}" type="video/mp4">
+                          </video>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="inside-page">
+                  <div class="inside-page__container">
+                      <h3 class="inside-page__heading inside-page__heading--camping">
+                          Attractive look
+                      </h3>
+                      <p class="inside-page__text">
+                          Get your paints and jeans. it will out of stock soon do fast!
+                      </p>
+                      <a  href="{% url 'bottomwear' %}" class="inside-page__btn inside-page__btn--camping">View deals</a>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Card: Explore -->
+      <section class="card-section">
+          <div class="maincard">
+              <div class="flip-card">
+                  <div class="flip-card__container">
+                      <div class="card-front">
+                          <div class="card-front__tp card-front__tp--explore">
+                              <img src="{% static 'app/images/jeans.png' %}" alt="">
+                             
+                              <h2 class="card-front__heading">
+                                  Bottomwear
+                              </h2>
+                              <p class="card-front__text-price">
+                                  From Rs 300
+                              </p>
+                          </div>
+
+                          <div class="card-front__bt">
+                              <p class="card-front__text-view card-front__text-view--explore">
+                                  View me
+                              </p>
+                          </div>
+                      </div>
+                      <div class="card-back">
+                          <video class="video__container" autoplay muted loop>
+                              <source class="video__media"src="{% static 'app/images/bot.mp4' %}" type="video/mp4">
+                          </video>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="inside-page">
+                  <div class="inside-page__container">
+                      <h3 class="inside-page__heading inside-page__heading--explore">
+                          Attractive look
+                      </h3>
+                      <p class="inside-page__text">
+                          Get your paints and jeans. it will out of stock soon do fast!
+                      </p>
+                      <a  href="{% url 'explorer' %}" class="inside-page__btn inside-page__btn--explore">View deals</a>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+  </section>
+
+</main>
+{% endblock card %}
+
+{% block main-content %}
+<!-- 1st Product topwear Slider -->
+<div class="mx-3">
+  <h4 class="alert alert-danger text-dark fw-bold text-center">Topwears</h4>
+  <!-- Slider 3 -->
+  <div class="owl-carousel" id="slider3">
+    {% for m in topwears %}
+    <div class="border border-primary border-2 product-card text-center p-3"> <!-- Added text-center for center alignment -->
+      <a href="{% url 'product-detail' m.id %}" class="item bg-transparent">
+        <div class="aspect-ratio aspect-ratio-1x1 d-flex align-items-center">
+          <img src="{{m.product_image.url}}" alt="" height="250px">
+        </div>
+      </a>
+        <hr class="text-dark">
+        <span class="fw-bold fs-4"><small>{{m.title}}</small></span><br>
+        <span class="fs-5">Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+        <div class="mt-3">
+          <div class="row">
+            <div class="col-md-6 mb-2">
+              <a href="{% url 'product-detail' m.id %}" class="btn btn-primary btn-sm">View Detail</a>
+            </div>
+            <div class="col-md-6">
+              {% if request.user.is_authenticated %}
+              {% if item_already_in_cart %}
+                <a href="{% url 'showcart' %}" class="btn btn-warning btn-sm">Go to Cart</a>
+              {% else %}
+                <form action="{% url 'addtocart' %}" method="post" class="d-inline">
+                  {% csrf_token %}
+                  <input type="hidden" name="prod_id" value="{{ m.id }}" id="prod_id">
+                  <button type="submit" class="btn btn-danger btn-sm">Add to Cart</button>
+                </form>
+              {% endif %}
+              {% else %}
+              <a href="{% url 'login' %}">
+                <button type="button" class="btn btn-danger btn-sm">Add to Cart</button>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- End 1st Product Slider -->
+{% endblock main-content %}
+
+
 {% block banner %}
 <!--Banner-->
 <section id="banner" class="section-p1 section-m1">
@@ -44,30 +327,58 @@
 <!--Banner-->
 {% endblock banner %}
 
-{% block main-content %}
-<!-- 1st Product Slider -->
+
+{% block main-content2 %}
+<!-- 2nd Product bottom wears Slider -->
 <div class="mx-3">
-  <h4 class="alert alert-danger text-dark fw-bold text-center">Top Wears</h4>
-  <!-- Slider 2 -->
-  <div class="owl-carousel" id="slider2">
-    {% for t in topwears %}
-    <a href="{% url 'product-detail' t.id %}" class="btn border border-primary border-2">
-      <div class="item bg-transparent">
-        <img src="{{t.product_image.url}}" alt="" height="200px">
-        <hr class="text-dark">
-        <span class="fw-bold">{{t.title}}</span><br>
-        <span class="fs-5">Rs. {{t.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{t.selling_price}}</small></span>
+  <h4 class="alert alert-danger text-dark fw-bold text-center">Bottomwear</h4>
+  <!-- Slider 3 -->
+  <div class="owl-carousel" id="slider3">
+    {% for m in bottomwears %}
+    <div class="border border-primary border-2 product-card text-center p-3" style="margin: 5px;"> <!-- Added text-center for center alignment and increased padding -->
+      <a href="{% url 'product-detail' m.id %}" class="item bg-transparent">
+        <div class="aspect-ratio aspect-ratio-1x1 d-flex align-items-center">
+          <img src="{{m.product_image.url}}" alt="" height="250px">
+        </div>
+      </a>
+      <hr class="text-dark">
+      <span class="fw-bold fs-4"><small>{{m.title}}</small></span><br>
+      <span class="fs-5">Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+      <div class="mt-3">
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <a href="{% url 'product-detail' m.id %}" class="btn btn-primary btn-sm">View Detail</a>
+          </div>
+          <div class="col-md-6">
+            {% if request.user.is_authenticated %}
+            {% if item_already_in_cart %}
+            <a href="{% url 'showcart' %}" class="btn btn-warning btn-sm">Go to Cart</a>
+            {% else %}
+            <form action="{% url 'addtocart' %}" method="post" class="d-inline">
+              {% csrf_token %}
+              <input type="hidden" name="prod_id" value="{{ m.id }}" id="prod_id">
+              <button type="submit" class="btn btn-danger btn-sm">Add to Cart</button>
+            </form>
+            {% endif %}
+            {% else %}
+            <a href="{% url 'login' %}">
+              <button type="button" class="btn btn-danger btn-sm">Add to Cart</button>
+            </a>
+            {% endif %}
+          </div>
+        </div>
       </div>
-    </a>
+    </div>
     {% endfor %}
   </div>
 </div>
-<!-- End 1st Product Slider -->
-{% endblock main-content %}
+<!-- End 2nd Product Slider -->
+{% endblock main-content2 %}
+
 
 {% block payment %}
 <!-- Payment Info Section -->
-<div class="container my-5">
+<div class="container my-5 mt-2">
   <div class="row">
     <div class="col-sm-3">
       <div class="card mb-3">
@@ -102,6 +413,56 @@
 <!-- End Payment Info Section -->
 {% endblock payment %}
 
+
+
+{% block main-content3 %}
+<!-- 3rd Product Mobiles Slider -->
+<div class="mx-3">
+  <h4 class="alert alert-danger text-dark fw-bold text-center">Mobile</h4>
+  <!-- Slider 3 -->
+  <div class="owl-carousel" id="slider3">
+    {% for m in mobiles %}
+    <div class="btn border border-primary border-2 product-card">
+      <a href="{% url 'product-detail' m.id %}" class="item bg-transparent">
+        <div class="aspect-ratio aspect-ratio-1x1 d-flex align-items-center">
+          <img src="{{m.product_image.url}}" alt="" class="img-fluid">
+        </div>
+      </a>
+        <hr class="text-dark">
+        <span class="fw-bold fs-4"><small>{{m.title}}</small></span><br>
+        <span class="fs-5" >Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+        <div class="mt-3">
+          <div class="row">
+            <div class="col-md-6 mb-2">
+              <a href="{% url 'product-detail' m.id %}" class="btn btn-primary btn-sm">View Detail</a>
+            </div>
+            <div class="col-md-6">
+              {% if request.user.is_authenticated %}
+              {% if item_already_in_cart %}
+                <a href="{% url 'showcart' %}" class="btn btn-warning btn-sm">Go to Cart</a>
+              {% else %}
+                <form action="{% url 'addtocart' %}" method="post" class="d-inline">
+                  {% csrf_token %}
+                  <input type="hidden" name="prod_id" value="{{ m.id }}" id="prod_id">
+                  <button type="submit" class="btn btn-danger btn-sm">Add to Cart</button>
+                </form>
+              {% endif %}
+              {% else %}
+              <a href="{% url 'login' %}">
+                <button type="button" class="btn btn-danger btn-sm">Add to Cart</button>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- End 3rd Product Mobiles Slider -->
+{% endblock main-content3 %}
+
 {% block livesale %}
 <!--Live Banner-->
 <section id="banner" class="section-p1 section-m1 ban">
@@ -114,65 +475,50 @@
 <!--Live Banner end-->
 {% endblock livesale %}
 
-{% block main-content2 %}
-<!-- 2nd Product Slider -->
+{% block main-content4 %}
+<!-- 4th Product Lalptop Slider -->
 <div class="mx-3">
-  <h4 class="alert alert-danger text-dark fw-bold text-center">Bottom Wears</h4>
-  <!-- Slider 1 -->
-  <div class="owl-carousel" id="slider1">
-    {% for b in bottomwears %}
-    <a href="{% url 'product-detail' b.id %}" class="btn border border-primary border-2">
-      <div class="item bg-transparent">
-        <img src="{{b.product_image.url}}" alt="" height="200px">
-        <hr class="text-dark">
-        <span class="fw-bold">{{b.title}}</span><br>
-        <span class="fs-5">Rs. {{b.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{b.selling_price}}</small></span>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-</div>
-<!-- End 2nd Product Slider -->
-{% endblock main-content2 %}
-
-{% block main-content3 %}
-<!-- 3rd Product Slider -->
-<div class="mx-3">
-  <h4 class="alert alert-danger text-dark fw-bold text-center">Mobile</h4>
+  <h4 class="alert alert-danger text-dark fw-bold text-center">Laptops</h4>
   <!-- Slider 3 -->
   <div class="owl-carousel" id="slider3">
-    {% for m in mobiles %}
-    <a href="{% url 'product-detail' m.id %}" class="btn border border-primary border-2">
-      <div class="item bg-transparent">
-        <img src="{{m.product_image.url}}" alt="" height="200px">
-        <hr class="text-dark">
-        <span class="fw-bold">{{m.title}}</span><br>
-        <span class="fs-5">Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+    {% for m in laptops %}
+    <div class="btn border border-primary border-2 product-card">
+      <a href="{% url 'product-detail' m.id %}" class="item bg-transparent">
+        <div class="aspect-ratio aspect-ratio-1x1 d-flex align-items-center">
+          <img src="{{m.product_image.url}}" alt="" height="200px">
+        </div>
+      </a>
+      <hr class="text-dark">
+      <span class="fw-bold fs-4"><small>{{m.title}}</small></span><br>
+      <span class="fs-5">Rs. {{m.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{m.selling_price}}</small></span>
+      <div class="mt-3">
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <a href="{% url 'product-detail' m.id %}" class="btn btn-primary btn-sm">View Detail</a>
+          </div>
+          <div class="col-md-6">
+            {% if request.user.is_authenticated %}
+            {% if item_already_in_cart %}
+              <a href="{% url 'showcart' %}" class="btn btn-warning btn-sm">Go to Cart</a>
+            {% else %}
+              <form action="{% url 'addtocart' %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <input type="hidden" name="prod_id" value="{{ m.id }}" id="prod_id">
+                <button type="submit" class="btn btn-danger btn-sm">Add to Cart</button>
+              </form>
+            {% endif %}
+            {% else %}
+            <a href="{% url 'login' %}">
+              <button type="button" class="btn btn-danger btn-sm">Add to Cart</button>
+            </a>
+            {% endif %}
+          </div>
+        </div>
       </div>
-    </a>
-    {% endfor %}
-  </div>
-</div>
-<!-- End 3rd Product Slider -->
-{% endblock main-content3 %}
-
-{% block main-content4 %}
-<!-- 4th Product Slider -->
-<div class="mx-3">
-  <h4 class="alert alert-danger text-dark fw-bold text-center">Laptop</h4>
-  <!-- Slider 4 -->
-  <div class="owl-carousel" id="slider4">
-    {% for l in laptops %}
-    <a href="{% url 'product-detail' l.id %}" class="btn border border-primary border-2">
-      <div class="item bg-transparent">
-        <img src="{{l.product_image.url}}" alt="" height="200px">
-        <hr class="text-dark">
-        <span class="fw-bold">{{l.title}}</span><br>
-        <span class="fs-5">Rs. {{l.discounted_price}} &nbsp; <small class="fw-light text-decoration-line-through ml-1">RS. {{l.selling_price}}</small></span>
-      </div>
-    </a>
+    </div>
     {% endfor %}
   </div>
 </div>
 <!-- End 4th Product Slider -->
 {% endblock main-content4 %}
+
