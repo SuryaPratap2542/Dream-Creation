@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Seller Dashboard{% endblock title %}
+
+{% block main-content %}
+<div class="container">
+    <div class="row my-3">
+        <div class="col-md-12">
+            <h3>Welcome to Your Seller Dashboard</h3>
+            <hr>
+            <h4>Seller Information:</h4>
+            <p><strong>Name:</strong> {{ seller.name }}</p>
+            <p><strong>Email:</strong> {{ seller.user.email }}</p>
+            <p><strong>Type:</strong> {{ seller.seller_type }}</p>
+            <!-- Display additional seller details here -->
+
+            <!-- Add code to display products, track orders, and analyze data -->
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

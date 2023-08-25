@@ -370,3 +370,5 @@ def search_results(request):
     
     # If there's no query, render the search page without any results
     return render(request, 'app/searchpage.html')
+
+

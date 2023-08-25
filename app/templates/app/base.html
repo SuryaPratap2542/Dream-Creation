@@ -9,7 +9,6 @@
 
   <!--Favicon -->
 
-
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -96,12 +95,23 @@
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
               </ul>
             </li>
+            {% comment %} {% if request.user.seller %}
+            <li class="nav-item mx-2">
+                <a href="{% url 'seller_dashboard' %}" class="nav-link text-white">Seller Dashboard</a>
+            </li>
+        {% else %}
+            <li class="nav-item mx-2">
+                <a href="{% url 'seller_register' %}" class="nav-link text-white">Become a Seller</a>
+            </li>
+        {% endif %} {% endcomment %}
+            
+
             <li class="nav-item mx-2">
               <a href="{% url 'showcart' %}" class="nav-link text-white">
                   <span class="badge bg-danger">{{ cart_count }}</span>
                   Cart
               </a>
-          </li>
+            </li>
           
             {% else %}
             <li class="nav-item mx-2">
@@ -260,44 +270,27 @@
   <!-- Footer -->
 
   <!-- Caht section -->
-<div class="chat">
-    <button class="chatbox-open">
-      <i class="fa fa-comment fa-2x" aria-hidden="true"></i>
-  </button>
-  <button class="chatbox-close">
-      <i class="fa fa-close fa-2x" aria-hidden="true"></i>
-  </button>
-  <section class="chatbox-popup">
-      <header class="chatbox-popup__header">
-          <aside style="flex:3">
-              <i class="fa fa-user-circle fa-4x chatbox-popup__avatar" aria-hidden="true"></i>
-          </aside>
-          <aside style="flex:8">
-            {% if request.user.is_authenticated %}
-              <h1 class="text-light"><span class="text-capitalize">{{request.user.username|capfirst}}</span></h1> DreamCreation(Online)
-              {% else %}
-              <h1 class="text-light">DreamCreation(Online)</h1> 
-
-            {% endif %}
-          </aside>
-      </header>
-      <main class="chatbox-popup__main" id="chatbox-popup-messages">
-          <!-- Conversation messages will be displayed here -->
-      </main>
-      <footer class="chatbox-popup__footer">
-          <aside style="flex:1;color:#888;text-align:center;">
-              <i class="fa fa-camera" aria-hidden="true"></i>
-          </aside>
-          <aside style="flex:10">
-              <textarea id="chatbox-popup-input" placeholder="Type your message here..." autofocus></textarea>
-          </aside>
-          <aside style="flex:1;color:#888;text-align:center;">
-              <i class="fa fa-paper-plane" aria-hidden="true" id="chatbox-popup-send-button"></i>
-          </aside>
-      </footer>
-  </section>
+  <div id="chat-section" class="chat">
+    <button class="chatbot-toggler">
+        <span><img src="{% static 'app/images/message.png' %}" alt="" srcset=""></span>
+        <span><img src="{% static 'app/images/cross.png' %}" alt="" srcset=""></span>
+    </button>
+    <div class="chat-container">
+        <div class="header">
+            <span class="h1">Chatbot</span>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+        </div>
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Type your message..." list="suggestions">
+            <datalist id="suggestions">
+              <!-- Suggestions will be added dynamically using JavaScript -->
+            </datalist>
+            <button id="send-button"><img src="{% static 'app/images/send.png' %}" alt="" srcset=""></button>
+        </div>
+    </div>
+  </div>
   
-</div>
   <!-- Caht section -->
 
 
@@ -308,6 +301,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
+
 
   <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
   <script src="{% static 'app/js/all.min.js' %}"></script>

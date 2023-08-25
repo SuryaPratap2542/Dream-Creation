@@ -27,7 +27,6 @@ $('#slider1, #slider2, #slider3, #slider4 ,#slider5').owlCarousel({
     }
 })
 
-// Ajax, it use for page withput Refresh
 $('.plus-cart').click(function(){
     var id = $(this).attr("pid").toString();
     var eml= this.parentNode.children[2]

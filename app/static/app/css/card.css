@@ -1,13 +1,4 @@
 
-/* *::after,
-*::before {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-}
-
-html { font-size: 62.5%; } *
-/* Main heading for card's front cover */
 .card-front__heading {
   font-size: 1.5rem;
   margin-top: .25rem;

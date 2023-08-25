@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from .forms import LoginForm,MyPasswordChangeForm,MyPasswordResetForm,MySetPasswordForm
 from .views import editAddress,delete_address
+
 urlpatterns = [
     path("", views.ProductView.as_view(), name="home"),
     path('product-detail/<int:pk>', views.ProductDetailView.as_view(), name='product-detail'),
@@ -65,6 +66,7 @@ urlpatterns = [
 
     path('explorer/', views.explorer, name='explorer'),
     path('search/', views.search_results, name='search_results'),
+
 
 ] 
 urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
