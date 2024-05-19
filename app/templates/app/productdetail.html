@@ -16,21 +16,25 @@
             </h4> <br>
             {% if request.user.is_authenticated %}
             {% if item_already_in_cart %}
-            <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 mt-3">Go to Cart</a>
+            <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-4 py-2 mt-3">Go to Cart</a>
             {% else %}
             <form action="/add-to-cart" class="d-inline">
                 <input type="hidden" name="prod_id" value="{{product.id}}" id="prod_id">
-                <button type="submit" class="btn btn-primary shadow px-5 py-2 mt-3">Add to Cart</button>
+                <button type="submit" class="btn btn-primary shadow px-4 py-2 mt-3">Add to Cart</button>
             </form>
             {% endif %}
             {% endif %}
             {% if not request.user.is_authenticated %}
             <form action="/add-to-cart" class="d-inline">
                 <input type="hidden" name="prod_id" value="{{product.id}}" id="prod_id">
-                <button type="submit" class="btn btn-primary shadow px-5 py-2 mt-3">Add to Cart</button>
+                <button type="submit" class="btn btn-primary shadow px-4 py-2 mt-3">Add to Cart</button>
             </form>
             {% endif %}
-            <a href="{% url 'showcart' %}" class="btn btn-danger shadow px-5 py-2 mt-3">Buy Now</a>
+            <a href="{% url 'showcart' %}" class="btn btn-danger shadow px-4 py-2 mt-3">Buy Now</a>
+            {% comment %} <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 mt-3">Contact Seller</a> {% endcomment %}
+            {% comment %} <a href="https://wa.me/7887070588" target="_blank" class="btn btn-warning shadow px-5 py-2 mt-3">Contact Seller</a> {% endcomment %}
+            <a href="https://wa.me/7317469830?text=I'm interested in the product: {{product.title}} (ID: {{product.id}}). Please provide more details." target="_blank" class="btn btn-success shadow px-4 py-2 mt-3">Contact Seller</a>
+
             <h5 class="mt-5">Available Offers</h5>
             <ul>
                 <li>Bank Offer: 5% Unlimited Cashback on Flipkart Axis Bank Credit</li>

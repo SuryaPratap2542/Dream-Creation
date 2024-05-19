@@ -6,10 +6,10 @@
 <!--Banner Slider-->
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    {% comment %} <div class="carousel-item active">
       <img src="{% static 'app/images/banner/bann1.jpg' %}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
+    </div> {% endcomment %}
+    <div class="carousel-item active">
       <img src="{% static 'app/images/banner/bann2.jpg' %}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
@@ -423,6 +423,7 @@
   <div class="owl-carousel" id="slider3">
     {% for m in mobiles %}
     <div class="btn border border-primary border-2 product-card">
+    {% comment %} <div class="btn border border-primary border-2 product-card"> {% endcomment %}
       <a href="{% url 'product-detail' m.id %}" class="item bg-transparent">
         <div class="aspect-ratio aspect-ratio-1x1 d-flex align-items-center">
           <img src="{{m.product_image.url}}" alt="" class="img-fluid">
